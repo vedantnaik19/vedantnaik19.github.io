@@ -2,6 +2,7 @@ import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowUpRight, ArrowUpRightIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { TypographyMuted, TypographyP, TypographySmall } from "./typography";
 
 interface FeaturedCardProps {
   title: string;
@@ -19,15 +20,14 @@ function FeaturedCard({ title, company, image, href }: FeaturedCardProps) {
             src={image}
             alt={title}
             fill
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            className="object-cover"
+            className="object-cover brightness-90 contrast-95 grayscale transition duration-300 group-hover:brightness-100 group-hover:contrast-100 group-hover:grayscale-0"
             loading="eager"
           />
         </div>
 
         <CardHeader>
           <CardTitle>{title}</CardTitle>
-          <p className="text-muted-foreground text-sm">{company}</p>{" "}
+          <TypographyMuted className="text-xs">{company}</TypographyMuted>
         </CardHeader>
       </Card>
     </Link>
@@ -38,41 +38,40 @@ const projects = [
   {
     title: "E-bike Rental Platform",
     company: "Hover Mobility",
-    image: "/images/placeholder.svg",
-    href: "/projects/ecommerce",
+    image: "/assets/001/cover.webp",
+    href: "/posts/001",
   },
   {
     title: "AI Tutor",
     company: "BBC",
     image: "/images/placeholder.svg",
-    href: "/projects/ai-dashboard",
+    href: "#",
   },
   {
     title: "CBeebies Apps",
     company: "BBC",
     image: "/images/placeholder.svg",
-    href: "/projects/portfolio",
+    href: "#",
   },
 ];
 
 export function Featured() {
   return (
     <section className="w-full">
-      <div className="flex w-full flex-col">
+      <div className="flex w-full flex-col gap-6">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, i) => (
             <FeaturedCard key={i} {...project} />
           ))}
         </div>
-        <div className="mt-6">
-          <Link
-            href="/projects"
-            className="text-muted-foreground hover:text-foreground inline-flex items-center gap-0.5 text-xs underline-offset-4 transition-colors hover:underline"
-          >
-            View all work
-            <ArrowUpRight size={14} />
-          </Link>
-        </div>
+        <Link
+          href="/posts"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="nav-link text-sm"
+        >
+          View all work <ArrowUpRight size={14} />
+        </Link>
       </div>
     </section>
   );

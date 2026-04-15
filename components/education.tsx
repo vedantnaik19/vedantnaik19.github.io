@@ -1,3 +1,13 @@
+import {
+  TypographyH3,
+  TypographyH4,
+  TypographyH5,
+  TypographyLead,
+  TypographyMuted,
+  TypographyP,
+  TypographySmall,
+} from "./typography";
+
 interface EducationItem {
   degree: string;
   university: string;
@@ -19,22 +29,16 @@ const education: EducationItem[] = [
 export function Education() {
   return (
     <section className="w-full">
-      <div className="flex flex-col">
-        
-        <p className="mb-6 text-xs text-muted-foreground">
-          Education
-        </p>
+      <div className="flex w-full flex-col gap-6">
+        <TypographyMuted>Education</TypographyMuted>
 
-
-        <div className="space-y-4">
+        <div className="flex flex-col gap-8">
           {education.map((item) => (
             <div key={`${item.university}-${item.degree}`}>
-              <h3 className="text-sm font-medium">
-                {item.degree}
-              </h3>
-              <p className="text-sm text-muted-foreground">
+              <TypographyH5>{item.degree}</TypographyH5>
+              <TypographyLead className="text-base leading-relaxed">
                 {item.university}, {item.year}
-              </p>
+              </TypographyLead>
             </div>
           ))}
         </div>

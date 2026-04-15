@@ -14,11 +14,11 @@ import { Separator } from "./ui/separator";
 
 export function Navbar() {
   return (
-    <nav className="bg-background/80 sticky top-0 z-50 w-full border-b border-border/40 py-2 backdrop-blur-md">
+    <nav className="bg-background sticky top-0 z-50 w-full border-b py-3">
       <div className="container mx-auto flex max-w-5xl items-center justify-between px-6">
         <Link
           href="/"
-          className="text-xl font-bold tracking-tighter"
+          className="hover:text-foreground/80 text-xl font-bold tracking-tighter transition-opacity"
           aria-label="Vedant Naik - Home"
         >
           व न
@@ -28,7 +28,7 @@ export function Navbar() {
             <NavigationMenuItem>
               <NavigationMenuLink
                 className={navigationMenuTriggerStyle()}
-                render={<Link href="/blogs">Blogs</Link>}
+                render={<Link href="/posts">Work</Link>}
               />
             </NavigationMenuItem>
             <NavigationMenuItem>
