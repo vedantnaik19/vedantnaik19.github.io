@@ -47,13 +47,13 @@ const projects = [
   {
     title: "AI Tutor",
     subtitle: "BBC",
-    image: "/assets/002/cover.webp",
+    image: "https://placehold.co/600x300?text=Work%20In%20Progress&font=geist",
     href: "/posts/002",
   },
   {
     title: "Cbeebies Apps",
     subtitle: "BBC",
-    image: "/assets/003/cover.webp",
+    image: "https://placehold.co/600x300?text=Work%20In%20Progress&font=geist",
     href: "/posts/003",
   },
 ];

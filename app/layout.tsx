@@ -26,13 +26,13 @@ export const metadata: Metadata = {
     "AI Engineer",
   ],
   authors: [
-    { name: "Vedant Naik", url: "https://vedantnaik19.github.io/portfolio" },
+    { name: "Vedant Naik", url: "https://vedantnaik19.github.io/" },
   ],
   creator: "Vedant Naik",
   openGraph: {
     type: "website",
     locale: "en_GB",
-    url: "https://vedantnaik19.github.io/portfolio",
+    url: "https://vedantnaik19.github.io/",
     title: "Vedant Naik — Software Engineer",
     description,
     siteName: "Vedant Naik",
