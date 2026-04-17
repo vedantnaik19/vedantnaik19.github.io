@@ -1,3 +1,9 @@
+import { Metadata } from "next";
+import Image from "next/image";
+import { notFound } from "next/navigation";
+
+import { ArrowUpRightIcon, Globe, Smartphone } from "lucide-react";
+
 import { Cover } from "@/components/cover";
 import {
   TypographyH2,
@@ -9,10 +15,6 @@ import {
   TypographySmall,
 } from "@/components/typography";
 import { Post, posts } from "@/lib/posts";
-import { ArrowUpRightIcon, Globe, Smartphone } from "lucide-react";
-import { Metadata } from "next";
-import Image from "next/image";
-import { notFound } from "next/navigation";
 
 const post = posts.find((p) => p.slug === "001");
 
@@ -278,7 +280,7 @@ export default function Page() {
             <div className="mx-auto flex w-full max-w-prose flex-col gap-6">
               <TypographyH3>System Architecture</TypographyH3>
               <TypographyP>
-                Given a lean team, the architecture prioritized simplicity and
+                Given a lean team, the architecture prioritised simplicity and
                 fault tolerance. An event-driven model was adopted with a
                 Node.js backend serving as the single source of truth,
                 emphasizing idempotent operations to handle the notoriously

@@ -1,5 +1,5 @@
-import { SectionLabel, TypographyMuted, TypographyP } from "./typography";
 import { Separator } from "./ui/separator";
+import { SectionLabel, TypographyMuted, TypographyP } from "./typography";
 
 const skills = {
   Languages: ["TypeScript", "Python", "Java", "Kotlin", "SQL"],

@@ -1,17 +1,20 @@
-import { Card, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+
+import { ArrowUpRight } from "lucide-react";
+
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
+
 import { TypographyMuted } from "./typography";
 
 interface FeaturedCardProps {
   title: string;
-  company: string;
+  subtitle: string;
   image: string;
   href: string;
 }
 
-function FeaturedCard({ title, company, image, href }: FeaturedCardProps) {
+function FeaturedCard({ title, subtitle, image, href }: FeaturedCardProps) {
   return (
     <Link href={href} className="group block">
       <Card className="hover:bg-muted relative mx-auto w-full max-w-sm pt-0 transition-all duration-300">
@@ -27,7 +30,7 @@ function FeaturedCard({ title, company, image, href }: FeaturedCardProps) {
 
         <CardHeader>
           <CardTitle>{title}</CardTitle>
-          <TypographyMuted className="text-xs">{company}</TypographyMuted>
+          <TypographyMuted className="text-xs">{subtitle}</TypographyMuted>
         </CardHeader>
       </Card>
     </Link>
@@ -37,21 +40,21 @@ function FeaturedCard({ title, company, image, href }: FeaturedCardProps) {
 const projects = [
   {
     title: "E-bike Rental Platform",
-    company: "Hover Mobility",
+    subtitle: "Hover Mobility",
     image: "/assets/001/cover.webp",
     href: "/posts/001",
   },
   {
     title: "AI Tutor",
-    company: "BBC",
-    image: "/images/placeholder.svg",
-    href: "#",
+    subtitle: "BBC",
+    image: "/assets/002/cover.webp",
+    href: "/posts/002",
   },
   {
-    title: "CBeebies Apps",
-    company: "BBC",
-    image: "/images/placeholder.svg",
-    href: "#",
+    title: "Cbeebies Apps",
+    subtitle: "BBC",
+    image: "/assets/003/cover.webp",
+    href: "/posts/003",
   },
 ];
 

@@ -1,3 +1,6 @@
+import { Metadata } from "next";
+import Link from "next/link";
+
 import {
   SectionLabel,
   TypographyH3,
@@ -5,8 +8,6 @@ import {
   TypographyP,
 } from "@/components/typography";
 import { posts } from "@/lib/posts";
-import { Metadata } from "next";
-import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Work",

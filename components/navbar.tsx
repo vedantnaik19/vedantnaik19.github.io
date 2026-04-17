@@ -9,8 +9,9 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { ThemeToggle } from "./theme-toggle";
+
 import { Separator } from "./ui/separator";
+import { ThemeToggle } from "./theme-toggle";
 
 export function Navbar() {
   return (

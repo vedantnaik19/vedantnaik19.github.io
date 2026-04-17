@@ -1,4 +1,5 @@
 import { ArrowUpRight, Mail } from "lucide-react";
+
 import { TypographyMuted } from "./typography";
 
 export function Footer() {

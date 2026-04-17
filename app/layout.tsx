@@ -1,9 +1,11 @@
+import type { Metadata } from "next";
+
 import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { fontMono, fontSans } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
-import type { Metadata } from "next";
+
 import "./globals.css";
 
 const description =

@@ -1,4 +1,5 @@
 import { MapPin } from "lucide-react";
+
 import { TypographyH1, TypographyLarge, TypographyMuted } from "./typography";
 
 export function Hero() {
