@@ -1,8 +1,8 @@
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowUpRight, ArrowUpRightIcon } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { TypographyMuted, TypographyP, TypographySmall } from "./typography";
+import { TypographyMuted } from "./typography";
 
 interface FeaturedCardProps {
   title: string;
@@ -21,7 +21,7 @@ function FeaturedCard({ title, company, image, href }: FeaturedCardProps) {
             alt={title}
             fill
             className="object-cover brightness-90 contrast-95 grayscale transition duration-300 group-hover:brightness-100 group-hover:contrast-100 group-hover:grayscale-0"
-            loading="eager"
+            loading="lazy"
           />
         </div>
 
@@ -57,22 +57,19 @@ const projects = [
 
 export function Featured() {
   return (
-    <section className="w-full">
-      <div className="flex w-full flex-col gap-6">
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project, i) => (
-            <FeaturedCard key={i} {...project} />
-          ))}
-        </div>
-        <Link
-          href="/posts"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="nav-link text-sm"
-        >
-          View all work <ArrowUpRight size={14} />
-        </Link>
+    <section className="flex w-full flex-col gap-6">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {projects.map((project, i) => (
+          <FeaturedCard key={i} {...project} />
+        ))}
       </div>
+      <Link href="/posts" className="nav-link group text-sm font-medium">
+        View all work{" "}
+        <ArrowUpRight
+          size={14}
+          className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+        />
+      </Link>
     </section>
   );
 }

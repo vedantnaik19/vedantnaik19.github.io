@@ -1,15 +1,15 @@
-interface Post {
+export interface Post {
   title: string;
   description: string;
-  date: Date;
   slug: string;
+  date?: Date;
 }
 
 export const posts: Post[] = [
   {
     title: "Hover Mobility",
-    description: "Engineering an E-Bike Rental Platform - From Design to Scale",
-    date: new Date("2026-04-15"),
+    description:
+      "Engineering an e-bike rental platform — from concept to acqui-hire.",
     slug: "001",
   },
 ];

@@ -1,9 +1,8 @@
 import {
-  TypographyH5,
-  TypographyLead,
+  SectionLabel,
+  TypographyH4,
   TypographyMuted,
   TypographyP,
-  TypographySmall,
 } from "./typography";
 
 interface ExperienceItem {
@@ -46,30 +45,26 @@ const experience: ExperienceItem[] = [
 
 export function Experience() {
   return (
-    <section className="w-full">
-      <div className="flex w-full flex-col gap-6">
-        <TypographyMuted>Experience</TypographyMuted>
+    <section className="flex w-full flex-col gap-6">
+      <SectionLabel>Experience</SectionLabel>
 
-        <div className="flex flex-col gap-8">
-          {experience.map((item) => (
-            <div key={`${item.company}-${item.role}`}>
-              <div className="flex items-baseline justify-between">
-                <TypographyH5>{item.role}</TypographyH5>
-                <TypographyLead className="text-base leading-relaxed">{item.period}</TypographyLead>
-              </div>
-
-              <TypographyLead className="text-base leading-relaxed">
-                {item.company}
-              </TypographyLead>
-
-              {item.description && (
-                <TypographyP className="mt-4! max-w-prose">
-                  {item.description}
-                </TypographyP>
-              )}
+      <div className="flex flex-col gap-8">
+        {experience.map((item) => (
+          <div key={`${item.company}-${item.role}`}>
+            <div className="flex flex-col items-start justify-between gap-1 sm:flex-row sm:items-baseline sm:gap-0">
+              <TypographyH4>{item.role}</TypographyH4>
+              <TypographyMuted as="span">{item.period}</TypographyMuted>
             </div>
-          ))}
-        </div>
+
+            <TypographyMuted className="mt-1">{item.company}</TypographyMuted>
+
+            {item.description && (
+              <TypographyP className="mt-2 max-w-prose">
+                {item.description}
+              </TypographyP>
+            )}
+          </div>
+        ))}
       </div>
     </section>
   );

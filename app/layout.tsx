@@ -1,10 +1,10 @@
+import { Footer } from "@/components/footer";
+import { Navbar } from "@/components/navbar";
+import { ThemeProvider } from "@/components/theme-provider";
+import { fontMono, fontSans } from "@/lib/fonts";
+import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import "./globals.css";
-import { cn } from "@/lib/utils";
-import { Navbar } from "@/components/navbar";
-import { Footer } from "@/components/footer";
-import { fontSans, fontMono } from "@/lib/fonts";
-import { ThemeProvider } from "@/components/theme-provider";
 
 const description =
   "Software engineer building scalable systems. Currently building AI platforms at the BBC.";
@@ -59,6 +59,7 @@ export default function RootLayout({
       className={cn(
         "h-full",
         "antialiased",
+        "overflow-y-scroll",
         fontSans.variable,
         fontMono.variable
       )}

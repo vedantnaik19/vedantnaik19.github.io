@@ -1,5 +1,5 @@
+import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
-import clsx from "clsx";
 
 interface CoverProps {
   left: ReactNode;
@@ -17,16 +17,16 @@ export function Cover({
   rightClassName,
 }: CoverProps) {
   return (
-    <div
-      className={clsx(
-        "bg-accent hover:bg-accent/95 md:h-[80vh] h-[30vh] w-full overflow-hidden transition-colors",
+    <section
+      className={cn(
+        "bg-muted h-[40vh] w-full overflow-hidden md:h-[80vh]",
         className
       )}
     >
       <div className="flex h-full flex-row items-center">
         <div
-          className={clsx(
-            "text-foreground flex flex-2 items-center justify-end px-4 text-right text-3xl font-bold tracking-tighter md:px-8 md:text-6xl",
+          className={cn(
+            "flex flex-2 items-center justify-end px-6 text-right text-4xl font-extrabold tracking-tight md:px-12 md:text-6xl",
             leftClassName
           )}
         >
@@ -34,14 +34,14 @@ export function Cover({
         </div>
 
         <div
-          className={clsx(
-            "relative flex h-full flex-5 items-center justify-center py-12",
+          className={cn(
+            "relative flex h-full flex-3 items-center justify-center py-12",
             rightClassName
           )}
         >
           {right}
         </div>
       </div>
-    </div>
+    </section>
   );
 }

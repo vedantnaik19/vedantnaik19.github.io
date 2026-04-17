@@ -14,8 +14,8 @@ import { Separator } from "./ui/separator";
 
 export function Navbar() {
   return (
-    <nav className="bg-background sticky top-0 z-50 w-full border-b py-3">
-      <div className="container mx-auto flex max-w-5xl items-center justify-between px-6">
+    <nav className="bg-background sticky top-0 z-50 w-full border-b px-6 py-4">
+      <div className="container mx-auto flex max-w-5xl items-center justify-between">
         <Link
           href="/"
           className="hover:text-foreground/80 text-xl font-bold tracking-tighter transition-opacity"
@@ -34,7 +34,7 @@ export function Navbar() {
             <NavigationMenuItem>
               <NavigationMenuLink
                 className={navigationMenuTriggerStyle()}
-                render={<Link href="/contact">Contact</Link>}
+                render={<Link href="#contact">Contact</Link>}
               />
             </NavigationMenuItem>
             <Separator orientation="vertical" className="m-2" />

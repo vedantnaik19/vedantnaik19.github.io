@@ -1,6 +1,12 @@
+import {
+  SectionLabel,
+  TypographyH3,
+  TypographyMuted,
+  TypographyP,
+} from "@/components/typography";
 import { posts } from "@/lib/posts";
-import Link from "next/link";
 import { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Work",
@@ -9,36 +15,40 @@ export const metadata: Metadata = {
 
 export default async function PostsPage() {
   return (
-    <main className="container mx-auto flex max-w-5xl flex-1 flex-col p-6 pb-24">
-      <p className="text-muted-foreground mt-12 mb-8 text-xs">Posts / Work</p>
+    <main className="container mx-auto flex max-w-5xl flex-1 flex-col gap-16 px-6 pt-12 pb-24 md:gap-24 md:pt-20">
+      <section className="flex flex-col gap-6">
+        <SectionLabel>Posts / Work</SectionLabel>
 
-      <div className="flex flex-col gap-8">
-        {posts.map((post) => (
-          <Link
-            key={post.slug}
-            href={`/posts/${post.slug}`}
-            className="group flex flex-col"
-          >
-            <div className="flex items-baseline justify-between gap-4">
-              <h3 className="text-lg font-semibold tracking-tight underline-offset-4 group-hover:underline">
-                {post.title}
-              </h3>
+        <div className="flex flex-col gap-8">
+          {posts.map((post) => (
+            <Link
+              key={post.slug}
+              href={`/posts/${post.slug}`}
+              className="group flex flex-col"
+            >
+              <div className="flex items-baseline justify-between gap-4">
+                <TypographyH3 className="underline-offset-4 group-hover:underline">
+                  {post.title}
+                </TypographyH3>
 
-              <span className="text-muted-foreground text-sm">
-                {post.date.toLocaleDateString()}
-              </span>
-            </div>
+                {post.date && (
+                  <TypographyMuted as="span">
+                    {post.date.toLocaleDateString()}
+                  </TypographyMuted>
+                )}
+              </div>
 
-            <p className="text-muted-foreground mt-2 max-w-prose leading-relaxed">
-              {post.description}
-            </p>
-          </Link>
-        ))}
+              <TypographyP className="mt-2 max-w-prose">
+                {post.description}
+              </TypographyP>
+            </Link>
+          ))}
 
-        {posts.length === 0 && (
-          <p className="text-muted-foreground text-sm">No posts yet.</p>
-        )}
-      </div>
+          {posts.length === 0 && (
+            <TypographyMuted>No posts yet.</TypographyMuted>
+          )}
+        </div>
+      </section>
     </main>
   );
 }
