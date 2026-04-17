@@ -6,7 +6,7 @@ import { Skills } from "@/components/skills";
 
 export default function Home() {
   return (
-    <main className="container mx-auto flex max-w-5xl flex-1 flex-col gap-16 px-6 pt-12 pb-24 md:gap-24 md:pt-20">
+    <main className="container mx-auto flex max-w-5xl flex-1 flex-col gap-12 px-6 pt-8 pb-24 md:gap-20 md:pt-16">
       <Hero />
       <Featured />
       <Experience />
