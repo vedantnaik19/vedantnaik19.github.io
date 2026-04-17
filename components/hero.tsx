@@ -4,7 +4,7 @@ import { TypographyH1, TypographyLarge, TypographyMuted } from "./typography";
 
 export function Hero() {
   return (
-    <section className="flex min-h-[40vh] w-full items-start pt-16 md:pt-36">
+    <section className="flex min-h-[30vh] w-full items-center lg:min-h-[40vh]">
       <div className="flex flex-col gap-y-4">
         <TypographyH1>Vedant Naik</TypographyH1>
 
