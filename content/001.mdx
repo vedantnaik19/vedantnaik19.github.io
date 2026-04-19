@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { InteractiveImage } from "@/components/interactive-image";
 
 import { PostMeta } from "@/components/post-meta";
 import { PostSpecs } from "@/components/post-specs";
@@ -87,7 +88,7 @@ Behind the scenes, a Flutter app, Node.js backend, and IoT-enabled bikes work to
   {howItWorksSteps.map((step) => (
     <figure key={step.title} className="flex flex-col gap-4">
       <div className="relative aspect-1/2 max-h-96 w-full overflow-hidden">
-        <Image
+        <InteractiveImage
           src={step.src}
           alt={`${step.title} screen`}
           fill
@@ -123,13 +124,13 @@ The diagram below illustrates how the mobile app, backend, and IoT-enabled bikes
 
 <figure className="flex flex-col gap-2 mx-auto max-w-5xl w-full">
   <div className="relative aspect-8/3 w-full overflow-hidden">
-    <Image
+    <InteractiveImage
       src="/assets/001/system-architecture-light.svg"
       alt="System Architecture Diagram"
       fill
       className="object-contain dark:hidden"
     />
-    <Image
+    <InteractiveImage
       src="/assets/001/system-architecture-dark.svg"
       alt="System Architecture Diagram"
       fill

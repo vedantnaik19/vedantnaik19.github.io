@@ -51,8 +51,8 @@ const projects = [
     href: "/posts/002",
   },
   {
-    title: "Cbeebies Apps",
-    subtitle: "BBC",
+    title: "Smart Laundromat",
+    subtitle: "WashedUp",
     image: "https://placehold.co/600x300?text=Work%20In%20Progress&font=geist",
     href: "/posts/003",
   },

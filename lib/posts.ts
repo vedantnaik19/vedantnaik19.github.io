@@ -29,15 +29,4 @@ export const posts: Post[] = [
     date: new Date("2026-04-19"),
     heroImage: "/assets/002/cover.webp",
   },
-  {
-    title: "Cbeebies Apps",
-    description:
-      "Developing interactive children's apps focused on usability, accessibility, and learning outcomes.",
-    slug: "003",
-    category: "Project",
-    timeline: "2021 — 2023",
-    date: new Date("2026-04-19"),
-    heroImage:
-      "https://placehold.co/600x300?text=Work%20In%20Progress&font=geist",
-  },
 ];
