@@ -5,10 +5,10 @@ import Image, { ImageProps } from "next/image";
 
 import "react-medium-image-zoom/dist/styles.css";
 
-export function InteractiveImage(props: ImageProps) {
+export function InteractiveImage({ alt, ...props }: ImageProps) {
   return (
     <Zoom zoomMargin={40}>
-      <Image {...props} />
+      <Image alt={alt} {...props} />
     </Zoom>
   );
 }
