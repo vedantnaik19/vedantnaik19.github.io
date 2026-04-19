@@ -49,6 +49,32 @@ export function TypographyH4({ children, className }: TypographyProps) {
   );
 }
 
+export function TypographyH5({ children, className }: TypographyProps) {
+  return (
+    <h4
+      className={cn(
+        "text-foreground/90 text-lg font-semibold tracking-tight",
+        className
+      )}
+    >
+      {children}
+    </h4>
+  );
+}
+
+export function TypographyH6({ children, className }: TypographyProps) {
+  return (
+    <h4
+      className={cn(
+        "text-foreground/90 text-base font-semibold tracking-tight",
+        className
+      )}
+    >
+      {children}
+    </h4>
+  );
+}
+
 export function TypographyP({ children, className }: TypographyProps) {
   return (
     <p className={cn("text-foreground/80 leading-relaxed", className)}>
@@ -67,14 +93,14 @@ export function TypographyLarge({ children, className }: TypographyProps) {
 
 export function TypographySmall({ children, className }: TypographyProps) {
   return (
-    <p
-      className={cn(
-        "text-foreground/80 text-sm leading-none font-medium",
-        className
-      )}
-    >
+    <p className={cn("text-foreground/80 text-sm font-medium", className)}>
       {children}
     </p>
+  );
+}
+export function TypographyXSmall({ children, className }: TypographyProps) {
+  return (
+    <p className={cn("text-foreground/80 text-xs", className)}>{children}</p>
   );
 }
 

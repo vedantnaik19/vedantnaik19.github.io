@@ -1,0 +1,139 @@
+import Image from "next/image";
+
+import { PostMeta } from "@/components/post-meta";
+import { PostSpecs } from "@/components/post-specs";
+import { PostTitle } from "@/components/post-title";
+import { ProjectLinks } from "@/components/project-links";
+
+import { posts } from "@/lib/posts";
+
+export const post = posts.find((p) => p.slug === "002");
+
+export const metadata = {
+    title: post?.title,
+    description: post?.description,
+};
+
+export const role = "AI Engineer, System Designer";
+export const tools = "Next.js, AI SDK, Gemini Flash, Azure Speech";
+
+<div className="mx-auto w-full max-w-3xl mb-2">
+  <PostMeta post={post} />
+</div>
+
+<div className="flex flex-col w-full gap-12 mb-6">
+  <header className="flex flex-col gap-6 max-w-3xl w-full mx-auto">
+    <PostTitle
+      title={post.title}
+      description={post.description}
+    />
+  </header>
+
+  <figure className="relative mx-auto w-full max-w-3xl aspect-video overflow-hidden bg-muted">
+    <Image
+      alt={`${post.title} hero image`}
+      src={post.heroImage}
+      fill
+      priority
+      className="object-contain bg-muted/50 scale-125"
+    />
+    <figcaption className="sr-only">
+      {post.title} hero image
+    </figcaption>
+  </figure>
+
+  <div className="mx-auto w-full max-w-3xl">
+    <PostSpecs timeline={post.timeline} role={role} tools={tools} />
+  </div>
+</div>
+
+
+### The Concept
+
+During a Friday “community time” within the BBC AI in Education community, I explored a simple idea:
+
+> What if a student could point their camera at a physics problem and ask, “how do I solve this?” and get real-time, voice-based guidance?
+
+The goal was to enable students to point their camera at a complex problem, ask a question, and receive voice-based guidance without noticeable lag.
+
+
+#### My Role
+
+I led the concept, system design, and full-stack implementation. My focus was on validating a low-latency multimodal interaction loop within a short, experimental time frame.
+
+
+### System Architecture
+
+At its core, the system runs on parallel perception and reasoning loops.  
+Visual context is processed continuously in the background, allowing the tutor to respond instantly when the user speaks.
+
+<figure className="mx-auto flex w-full max-w-5xl flex-col gap-2">
+  <div className="relative aspect-8/3 w-full overflow-hidden">
+    <Image
+      src="/assets/002/system-architecture-light.svg"
+      alt="Multimodal system architecture diagram"
+      fill
+      sizes="(max-width: 1024px) 100vw, 1024px"
+      className="object-contain dark:hidden"
+    />
+    <Image
+      src="/assets/002/system-architecture-dark.svg"
+      alt="Multimodal system architecture diagram"
+      fill
+      sizes="(max-width: 1024px) 100vw, 1024px"
+      className="hidden object-contain dark:block"
+    />
+  </div>
+
+  <figcaption className="text-center italic text-muted-foreground text-xs">
+    Figure: High-level System Architecture
+  </figcaption>
+</figure>
+
+
+The system combines three signals—live visual context, transcribed speech, and a Socratic system persona into a single reasoning step.  
+By decoupling perception from interaction, it achieves a near real-time experience despite underlying latency.
+
+
+### How It Works
+
+- **Visual Context:** Low-resolution camera frames are continuously processed to maintain a rolling visual context.
+- **User Input:** Speech-to-text captures user intent and triggers reasoning.
+- **Multimodal Reasoning:** The system combines vision, language, and persona to guide the student.
+- **Voice Output:** Responses are buffered at the sentence level before text-to-speech, ensuring natural delivery.
+
+
+### Key Insight
+
+> The breakthrough wasn't raw speed, it was parallelism.
+
+By building context before it was needed, the system felt significantly faster and more responsive than traditional sequential approaches.
+
+
+### Technical Challenges
+
+#### Outdated Context
+
+Early prototypes suffered from latency—by the time a frame was processed, users had often moved their camera, leading to outdated responses.
+
+I addressed this in two ways:
+
+- **Model Speed:** Switching to Gemini Flash enabled near real-time image analysis.
+- **Asynchronous Processing:** A background pipeline continuously updates visual context, ensuring recent scene understanding is always available.  
+
+By the time the user finishes speaking, the relevant context is already available—making the system feel real-time.
+
+
+#### Speech Coherence
+
+Streaming text-to-speech often produced choppy, unnatural output when speaking partial responses in real time.
+
+I implemented a sentence-based buffering system, ensuring only complete sentences were spoken.
+This introduced minimal delay but significantly improved naturalness and flow.
+
+
+### Outcomes & Learnings
+
+The result was an experience that felt intuitive and futuristic, a tutor capable of guiding students through problems simply by observing their work. Demonstrating the prototype sparked meaningful discussions within the AI in Education community around the future of interactive learning.
+
+The key insight was that perceived performance matters more than raw speed. By parallelising vision and speech, the system felt faster and more responsive than traditional sequential approaches.

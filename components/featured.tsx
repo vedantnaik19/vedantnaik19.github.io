@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -23,8 +23,8 @@ function FeaturedCard({ title, subtitle, image, href }: FeaturedCardProps) {
             src={image}
             alt={title}
             fill
-            className="object-cover brightness-90 contrast-95 grayscale transition duration-300 group-hover:brightness-100 group-hover:contrast-100 group-hover:grayscale-0"
-            loading="lazy"
+            className="bg-muted/50 object-contain brightness-90 contrast-95 grayscale transition-all duration-300 group-hover:brightness-100 group-hover:contrast-100 group-hover:grayscale-0 hover:scale-[1.02]"
+            loading="eager"
           />
         </div>
 
@@ -45,9 +45,9 @@ const projects = [
     href: "/posts/001",
   },
   {
-    title: "AI Tutor",
+    title: "Mutimodal AI Tutor",
     subtitle: "BBC",
-    image: "https://placehold.co/600x300?text=Work%20In%20Progress&font=geist",
+    image: "/assets/002/cover.webp",
     href: "/posts/002",
   },
   {
@@ -67,11 +67,7 @@ export function Featured() {
         ))}
       </div>
       <Link href="/posts" className="nav-link group text-sm font-medium">
-        View all work{" "}
-        <ArrowUpRight
-          size={14}
-          className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-        />
+        View all work <ArrowRight className="h-3 w-3" />
       </Link>
     </section>
   );

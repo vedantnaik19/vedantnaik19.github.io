@@ -1,0 +1,213 @@
+import Image from "next/image";
+
+import { PostMeta } from "@/components/post-meta";
+import { PostSpecs } from "@/components/post-specs";
+import { PostTitle } from "@/components/post-title";
+import { ProjectLinks } from "@/components/project-links";
+
+import { posts } from "@/lib/posts";
+
+export const post = posts.find((p) => p.slug === "001");
+
+export const metadata = {
+  title: post?.title,
+  description: post?.description,
+};
+
+export const role = "Co-founder, Fullstack Engineer, System Architect";
+export const tools = "Flutter, Android, Node.js, AWS";
+
+export const howItWorksSteps = [
+  {
+    step: "1",
+    title: "Locate a Bike",
+    desc: "Find nearby bikes on the map.",
+    src: "/assets/001/how-it-works/locate.webp",
+  },
+  {
+    step: "2",
+    title: "Unlock & Ride",
+    desc: "Scan the QR code to unlock and start the ride.",
+    src: "/assets/001/how-it-works/start.webp",
+  },
+  {
+    step: "3",
+    title: "Park & End",
+    desc: "Dock at a designated station and end the ride.",
+    src: "/assets/001/how-it-works/end.webp",
+  },
+];
+
+export const outcomeImages = [1, 2, 3, 4];
+
+<div className="mx-auto w-full max-w-3xl mb-2">
+    <PostMeta post={post} />
+</div>
+
+<div className="flex flex-col w-full gap-12 mb-6">
+  <header className="flex flex-col gap-6 max-w-3xl w-full mx-auto">
+    <PostTitle title={post.title} description={post.description} />
+    <ProjectLinks />
+  </header>
+
+  <figure className="relative mx-auto w-full max-w-3xl aspect-video overflow-hidden bg-muted">
+    <Image 
+      alt={`${post.title} hero image`} 
+      src={post.heroImage} 
+      fill
+      priority
+      className="object-contain bg-muted/50 scale-125"
+    />
+    <figcaption className="sr-only">
+      {post.title} hero image
+    </figcaption>
+  </figure>
+
+  <div className="mx-auto w-full max-w-3xl">
+    <PostSpecs timeline={post.timeline} role={role} tools={tools} />
+  </div>
+</div>
+
+
+
+
+### Overview
+Hover Mobility is a dock-based e-bike rental platform addressing first- and last-mile connectivity on Indian university campuses. Founded in 2019, my co-founders and I built a mobile-first solution that enables students to easily locate, rent, and ride electric bikes across large, often fragmented campus environments.
+
+As technical co-founder, I led end-to-end engineering across mobile, backend, and IoT systems. I built the core platform using Flutter and Node.js, designed resilient APIs with an offline BLE fallback for low-connectivity scenarios, managed AWS infrastructure for scale, and collaborated with hardware partners to integrate secure IoT devices.
+
+
+### How It Works
+
+Students use the Hover Mobility app to find nearby bikes, unlock them via QR, ride to their destination, and dock at designated stations to end the trip. 
+Behind the scenes, a Flutter app, Node.js backend, and IoT-enabled bikes work together to deliver a reliable experience, even in low-connectivity environments.
+
+
+<div className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-8 py-8 sm:grid-cols-3">
+  {howItWorksSteps.map((step) => (
+    <figure key={step.title} className="flex flex-col gap-4">
+      <div className="relative aspect-1/2 max-h-96 w-full overflow-hidden">
+        <Image
+          src={step.src}
+          alt={`${step.title} screen`}
+          fill
+          className="object-contain"
+        />
+      </div>
+
+      <figcaption className="flex flex-col items-center gap-1 text-center">
+        <span className="text-muted-foreground text-xs font-semibold uppercase tracking-wider">
+          Step {step.step}
+        </span>
+
+        <span className="text-foreground text-base font-semibold tracking-tight">
+          {step.title}
+        </span>
+
+        <span className="text-muted-foreground text-sm leading-relaxed">
+          {step.desc}
+        </span>
+      </figcaption>
+    </figure>
+  ))}
+</div>
+
+
+### System Architecture
+
+Given a lean team, the architecture prioritized simplicity and fault tolerance. 
+I designed the system around an event-driven architecture, with a Node.js backend as the single source of truth, and emphasized idempotent operations to handle unreliable campus networks.
+
+The diagram below illustrates how the mobile app, backend, and IoT-enabled bikes interact within the system.
+
+
+<figure className="flex flex-col gap-2 mx-auto max-w-5xl w-full">
+  <div className="relative aspect-8/3 w-full overflow-hidden">
+    <Image
+      src="/assets/001/system-architecture-light.svg"
+      alt="System Architecture Diagram"
+      fill
+      className="object-contain dark:hidden"
+    />
+    <Image
+      src="/assets/001/system-architecture-dark.svg"
+      alt="System Architecture Diagram"
+      fill
+      className="hidden object-contain dark:block"
+    />
+  </div>
+
+  <figcaption className="text-center italic text-muted-foreground text-xs">
+    Figure: High-level System Architecture
+  </figcaption>
+</figure>
+
+
+
+
+### Challenges
+
+#### Unreliable Connectivity
+
+The biggest challenge was handling lock and unlock operations in areas with poor or no internet connectivity. 
+Traditional cloud-dependent approaches failed frequently, leading to stranded users and unusable bikes.
+
+While REST APIs handled primary communication, I introduced a Bluetooth Low Energy (BLE) fallback mechanism. 
+The app generated short-lived offline tokens when connected, allowing users to securely unlock and lock bikes via BLE even in dead zones. 
+Once connectivity was restored, the app reconciled ride state with the server.
+The diagram below illustrates this flow.
+
+<figure className="mx-auto flex w-full max-w-5xl flex-col gap-2">
+  <div className="relative aspect-8/3 w-full overflow-hidden">
+    <Image
+      src="/assets/001/reliable-connection-light.svg"
+      alt="Reliable connection diagram showing offline BLE fallback mechanism"
+      fill
+      sizes="(max-width: 1024px) 100vw, 1024px"
+      className="object-contain dark:hidden"
+    />
+    <Image
+      src="/assets/001/reliable-connection-dark.svg"
+      alt="Reliable connection diagram showing offline BLE fallback mechanism"
+      fill
+      sizes="(max-width: 1024px) 100vw, 1024px"
+      className="hidden object-contain dark:block"
+    />
+  </div>
+
+  <figcaption className="text-center italic text-muted-foreground text-xs">
+    Figure: Offline BLE Fallback Mechanism
+  </figcaption>
+</figure>
+
+
+#### Other Hurdles
+
+- **Dynamic Pricing:** As the platform scaled across campuses, I decoupled pricing logic from the core application, enabling location-specific configurations.
+- **Fraud Prevention:** To reduce payment abuse, I implemented a security deposit system integrated with Razorpay, limiting ride duration based on deposit value.
+- **UX Design:** Without a dedicated designer, I iteratively refined UI flows by studying industry patterns and introduced onboarding tutorials to reduce user friction. In hindsight, investing earlier in structured UX research and design systems would have significantly improved the overall experience.
+
+### Key Insight
+
+> Reliability in the real world requires designing for failure.
+
+By introducing an offline BLE fallback and idempotent backend operations, the system remained usable even when network conditions were unreliable—ensuring a consistent user experience across campus environments.
+
+### Outcomes & Learnings
+
+Hover Mobility was deployed across two university campuses, validating the system under real-world hardware and network constraints. The platform supported consistent day-to-day usage in environments with unreliable connectivity.
+
+The project ultimately led to an **acqui-hire** opportunity for the founding team.
+
+<div className="grid mx-auto max-w-4xl w-full grid-cols-2 gap-3 sm:grid-cols-4 my-8">
+  {outcomeImages.map((num) => (
+    <div key={num} className="relative aspect-square overflow-hidden">
+      <Image
+        src={`/assets/001/outcome/${num}.jpeg`}
+        alt={`Deployment photo ${num}`}
+        fill
+        className="object-cover opacity-95 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 hover:scale-[1.02]"
+      />
+    </div>
+  ))}
+</div>

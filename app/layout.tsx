@@ -65,6 +65,7 @@ export default function RootLayout({
         fontSans.variable,
         fontMono.variable
       )}
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
       <body className="flex min-h-full flex-col font-sans">
