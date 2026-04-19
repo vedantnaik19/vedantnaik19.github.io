@@ -69,10 +69,10 @@ export default function RootLayout({
     >
       <body className="flex min-h-full flex-col font-sans">
         <Script
-          defer
           src="https://cloud.umami.is/script.js"
           data-website-id="0a4c86a6-5193-4af4-b91a-92e37333afcb"
           data-domains="vedantnaik19.github.io"
+          strategy="afterInteractive"
         />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Navbar />
