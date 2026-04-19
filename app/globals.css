@@ -121,13 +121,13 @@
 }
 
 /* Interactive Image */
-[data-rmiz-modal-overlay] {
+[data-rmiz-modal-overlay="visible"] {
   background-color: var(--background) !important;
 }
 
 @layer components {
   .nav-link {
-    @apply text-foreground/80 hover:text-foreground focus-visible:text-foreground flex items-center gap-1 underline-offset-4 transition-colors hover:underline focus-visible:underline;
+    @apply text-foreground/80 hover:text-foreground focus-visible:text-foreground inline-flex items-center gap-1 underline-offset-4 transition-colors hover:underline focus-visible:underline;
   }
 }
 
