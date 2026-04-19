@@ -9,7 +9,7 @@ Check out the live portfolio here: **[https://vedantnaik19.github.io](https://ve
 ## 🛠 Tech Stack
 
 - **Framework:** [Next.js](https://nextjs.org/) (App Router, Turbopack)
-- **Content:** [MDX](https://mdxjs.org/)
+- **Content:** [MDX](https://nextjs.org/docs/app/guides/mdx)
 - **Styling:** [Tailwind CSS v4](https://tailwindcss.com/)
 - **UI Components:** [Shadcn UI](https://ui.shadcn.com/)
 - **Deployment:** [GitHub Pages](https://pages.github.com/) via GitHub Actions
