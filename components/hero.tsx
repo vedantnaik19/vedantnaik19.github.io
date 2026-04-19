@@ -11,17 +11,15 @@ export function Hero() {
         <TypographyLarge className="max-w-2xl">
           Software engineer building scalable systems. Currently building AI
           platforms at the{" "}
-          <span>
-            <a
-              href="https://www.bbc.co.uk"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="nav-link"
-            >
-              BBC
-            </a>
-            .
-          </span>
+          <a
+            href="https://www.bbc.co.uk"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="nav-link"
+          >
+            BBC
+          </a>
+          .
         </TypographyLarge>
 
         <TypographyMuted className="flex items-center gap-1">
