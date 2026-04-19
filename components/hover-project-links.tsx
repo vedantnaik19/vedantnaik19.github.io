@@ -1,7 +1,6 @@
 import { ArrowUpRightIcon, Globe, Smartphone } from "lucide-react";
 
-// TODO: Make this reusuable
-export function ProjectLinks() {
+export function HoverProjectLinks() {
   return (
     <div className="flex flex-wrap gap-4">
       <a
@@ -10,7 +9,8 @@ export function ProjectLinks() {
         className="nav-link"
         rel="noopener noreferrer"
       >
-        <Smartphone className="mr-0.5 h-3.5 w-3.5" aria-hidden="true" /> App
+        <Smartphone className="h-3.5 w-3.5" aria-hidden="true" />
+        <span>App</span>
         <ArrowUpRightIcon className="h-3 w-3" aria-hidden="true" />
       </a>
       <a
@@ -19,7 +19,8 @@ export function ProjectLinks() {
         rel="noopener noreferrer"
         className="nav-link"
       >
-        <Globe className="mr-0.5 h-3.5 w-3.5" aria-hidden="true" /> Website
+        <Globe className="h-3.5 w-3.5" aria-hidden="true" />
+        <span>Website</span>
         <ArrowUpRightIcon className="h-3 w-3" aria-hidden="true" />
       </a>
     </div>

@@ -1,6 +1,3 @@
-## Description
-<!-- Briefly describe the changes introduced by this PR. AI bots will typically fill this section. -->
-
 ## Type of Change
 - [ ] ✨ New Feature
 - [ ] 🐛 Bug Fix
