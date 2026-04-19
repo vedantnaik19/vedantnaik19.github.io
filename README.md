@@ -1,6 +1,6 @@
 # Vedant Naik | Portfolio
 
-Personal portfolio and technical blog built with a focus on clean typography, performance, and interactive case studies.
+Personal portfolio and technical blog built with a focus on clean design and performance.
 
 ## 🌐 Live Site
 
