@@ -4,7 +4,7 @@ import { InteractiveImage } from "@/components/interactive-image";
 import { PostMeta } from "@/components/post-meta";
 import { PostSpecs } from "@/components/post-specs";
 import { PostTitle } from "@/components/post-title";
-import { ProjectLinks } from "@/components/project-links";
+import { HoverProjectLinks } from "@/components/hover-project-links";
 
 import { posts } from "@/lib/posts";
 
@@ -48,7 +48,7 @@ export const outcomeImages = [1, 2, 3, 4];
 <div className="flex flex-col w-full gap-12 mb-6">
   <header className="flex flex-col gap-6 max-w-3xl w-full mx-auto">
     <PostTitle title={post.title} description={post.description} />
-    <ProjectLinks />
+    <HoverLinks />
   </header>
 
   <figure className="relative mx-auto w-full max-w-3xl aspect-video overflow-hidden bg-muted">
