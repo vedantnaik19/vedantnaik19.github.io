@@ -121,7 +121,7 @@
 }
 
 /* Interactive Image */
-[data-rmiz-modal-overlay] {
+[data-rmiz-modal-overlay="visible"] {
   background-color: var(--background) !important;
 }
 
