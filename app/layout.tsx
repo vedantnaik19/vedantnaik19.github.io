@@ -74,7 +74,7 @@ export default function RootLayout({
           data-domains="vedantnaik19.github.io"
           strategy="afterInteractive"
         />
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           <Navbar />
           {children}
           <Footer />
