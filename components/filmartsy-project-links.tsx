@@ -21,7 +21,7 @@ export function FilmArtsyProjectLinks() {
         rel="noopener noreferrer"
       >
         <LinkedInIcon className="h-3.5 w-3.5" aria-hidden="true" />
-        <span>LinkedIn Page</span>
+        <span>LinkedIn</span>
         <ArrowUpRightIcon className="h-3 w-3" aria-hidden="true" />
       </a>
     </div>
