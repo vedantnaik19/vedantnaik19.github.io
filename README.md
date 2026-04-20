@@ -16,7 +16,7 @@ Check out the live portfolio here: **[https://vedantnaik19.github.io](https://ve
 
 ## 🏗 Key Features
 
-- **Dynamic MDX Routing:** Projects & blogs are authored in pure Markdown (`/content/*.mdx`) and dynamically rendered via a single `[slug]` route for better maintainability.
+- **Dynamic MDX Routing:** Projects & Writing are authored in pure Markdown (`/content/*.mdx`) and dynamically rendered via a single `[slug]` route for better maintainability.
 - **Optimized for Reading:** Custom typography system built using Tailwind utility classes and mapped to MDX elements.
 - **Static Generation:** Fully pre-rendered at build time (SSG) for maximum performance and SEO.
 
@@ -25,7 +25,7 @@ Check out the live portfolio here: **[https://vedantnaik19.github.io](https://ve
 ```text
 ├── app/              # Next.js App Router (Layouts, Pages, Components)
 ├── components/       # Reusable UI components
-├── content/          # Projects & blogs content (MDX files)
+├── content/          # Projects & Writing content (MDX files)
 ├── lib/              # Shared utilities
 ├── public/           # Static assets (images, diagrams)
 └── next.config.ts    # Next.js configuration

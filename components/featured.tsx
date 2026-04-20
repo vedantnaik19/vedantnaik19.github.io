@@ -51,9 +51,9 @@ const projects = [
     href: "/posts/002",
   },
   {
-    title: "Smart Laundromat",
-    subtitle: "WashedUp",
-    image: "https://placehold.co/600x300?text=Work%20In%20Progress&font=geist",
+    title: "Social Media App",
+    subtitle: "FilmArtsy",
+    image: "/assets/003/cover.webp",
     href: "/posts/003",
   },
 ];

@@ -1,6 +1,84 @@
-import { Construction } from "lucide-react";
+import { InteractiveImage } from "@/components/interactive-image";
 
-<section className="mx-auto flex flex-col gap-4 items-center w-full">
-<Construction/>
-I'm currently documenting this project. Check back soon for a full deep dive into the engineering, design, and outcome of this work.
-</section>
+import { FilmArtsyProjectLinks } from "@/components/filmartsy-project-links";
+import { PostMeta } from "@/components/post-meta";
+import { PostSpecs } from "@/components/post-specs";
+import { PostTitle } from "@/components/post-title";
+
+import { posts } from "@/lib/posts";
+
+export const post = posts.find((p) => p.slug === "003");
+
+export const metadata = {
+    title: post?.title,
+    description: post?.description,
+};
+
+export const role = "Mobile Engineer";
+export const tools = "Flutter, Android";
+
+<div className="mx-auto w-full max-w-3xl mb-2">
+  <PostMeta post={post} />
+</div>
+
+<div className="flex flex-col w-full gap-12 mb-6">
+  <header className="flex flex-col gap-6 max-w-3xl w-full mx-auto">
+    <PostTitle
+      title={post?.title ?? ""}
+      description={post?.description ?? ""}
+    />
+    <FilmArtsyProjectLinks />
+  </header>
+
+  <figure className="flex flex-col gap-2 mx-auto max-w-3xl w-full">
+    <div className="relative aspect-video w-full overflow-hidden">
+        <InteractiveImage
+        alt={`${post.title} app screenshots`}
+        src="/assets/003/app-screenshots.webp"
+        fill
+        loading="eager"
+        className="object-contain"
+        />
+    </div>
+
+    <figcaption className="sr-only">
+        {post.title} App Screenshots
+    </figcaption>
+  </figure>
+
+  <div className="mx-auto w-full max-w-3xl">
+    <PostSpecs timeline={post.timeline} role={role} tools={tools} />
+  </div>
+</div>
+
+
+### Overview
+
+FilmArtsy is a social platform for film professionals to showcase work, build credibility, and collaborate on projects. It combines elements of LinkedIn and creative portfolios tailored specifically for the film industry.
+
+
+#### My Role
+
+- Built and shipped the core mobile application using Flutter and Android.
+- Collaborated closely with UI/UX designers to implement polished, responsive interfaces.
+- Partnered with product managers to refine feature scope and optimise user flows.
+- Integrated RESTful backend APIs in tandem with backend engineers to ensure seamless data delivery.
+
+
+### Key Technical Challenges
+
+#### Scalable State Management
+As the app expanded with rich profiles, dynamic feeds, and collaboration features, managing reactive UI updates and asynchronous data flows became increasingly complex. 
+
+I implemented **MobX** for state management, enabling a clear separation of concerns through observable state, actions, and reactions. This architectural shift resulted in highly predictable state updates, improved codebase maintainability, and faster iteration cycles for new features.
+
+#### Performance Optimization
+Rendering image-heavy feeds caused noticeable performance bottlenecks, particularly on lower-end devices.
+
+To solve this, I implemented optimised image caching and resolution-aware content delivery, ensuring the app only requested and served appropriately sized assets based on device screen density. Combined with lazy loading and heavily optimized widget rebuilds, this achieved consistently smooth scrolling and a vastly improved user experience.
+
+### Key Learnings
+
+- Design state management early, it becomes costly to refactor later
+- Align on API contracts upfront to reduce integration bugs
+- Performance is not a phase, it's a continuous process
