@@ -22,7 +22,7 @@ export function Navbar() {
           className="hover:text-foreground/80 text-xl font-bold tracking-tighter transition-opacity"
           aria-label="Vedant Naik - Home"
         >
-          व न
+          वे
         </Link>
         <NavigationMenu>
           <NavigationMenuList className="gap-1">

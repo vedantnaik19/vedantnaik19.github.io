@@ -30,7 +30,17 @@ export const tools = "Flutter, Android";
     <FilmArtsyProjectLinks />
   </header>
 
-  <figure className="flex flex-col gap-2 mx-auto max-w-3xl w-full">
+  <div className="mx-auto w-full max-w-3xl">
+    <PostSpecs timeline={post.timeline} role={role} tools={tools} />
+  </div>
+</div>
+
+
+### Overview
+
+FilmArtsy is a social platform for film professionals to showcase work, build credibility, and collaborate on projects. It combines elements of LinkedIn and creative portfolios tailored specifically for the film industry.
+
+<figure className="flex flex-col gap-2 mx-auto max-w-3xl w-full">
     <div className="relative aspect-video w-full overflow-hidden">
         <InteractiveImage
         alt={`${post.title} app screenshots`}
@@ -44,18 +54,7 @@ export const tools = "Flutter, Android";
     <figcaption className="sr-only">
         {post.title} App Screenshots
     </figcaption>
-  </figure>
-
-  <div className="mx-auto w-full max-w-3xl">
-    <PostSpecs timeline={post.timeline} role={role} tools={tools} />
-  </div>
-</div>
-
-
-### Overview
-
-FilmArtsy is a social platform for film professionals to showcase work, build credibility, and collaborate on projects. It combines elements of LinkedIn and creative portfolios tailored specifically for the film industry.
-
+</figure>
 
 #### My Role
 
