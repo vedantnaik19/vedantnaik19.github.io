@@ -47,7 +47,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     ul: (props) => (
       <ul
-        className="text-foreground/80 mx-auto mb-6 w-full max-w-3xl list-disc space-y-2 pl-5 leading-relaxed"
+        className="text-foreground/80 mx-auto mb-6 w-full max-w-3xl list-disc space-y-1 pl-5 leading-relaxed"
         {...props}
       />
     ),

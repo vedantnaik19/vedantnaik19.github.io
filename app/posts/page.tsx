@@ -21,7 +21,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { posts } from "@/lib/posts";
 
-const title = "Projects & Blogs";
+const title = "Projects & Writing";
 const description =
   "A collection of my projects, case studies, and engineering work.";
 
@@ -37,24 +37,26 @@ export default function PostsPage() {
   });
 
   return (
-    <main className="container mx-auto flex max-w-5xl flex-1 flex-col gap-12 px-6 pt-8 pb-24 md:gap-20 md:pt-16">
+    <main className="container mx-auto flex flex-1 flex-col gap-12 px-6 pt-8 pb-24 md:gap-20 md:pt-16">
       {/* Breadcrumb */}
 
-      <Breadcrumb>
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink render={<Link href="/" />}>Home</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage>Projects & Blogs</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
+      <div className="mx-auto flex w-full max-w-3xl">
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink render={<Link href="/" />}>Home</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>Projects & Writing</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+      </div>
 
       {/* Header */}
-      <section className="flex flex-col gap-10">
-        <header className="flex max-w-2xl flex-col gap-2">
+      <section className="mx-auto flex w-full max-w-3xl flex-col gap-10">
+        <header className="flex flex-col gap-2">
           <TypographyH2 className="text-3xl font-bold tracking-tight">
             {title}
           </TypographyH2>
@@ -65,7 +67,7 @@ export default function PostsPage() {
         </header>
 
         {/* Posts List */}
-        <ul className="flex w-full max-w-3xl flex-col gap-3">
+        <ul className="flex w-full flex-col gap-3">
           {orderedPosts.map((post, index) => (
             <li key={post.slug} className="flex flex-col gap-3">
               <article className="group relative flex w-full flex-col gap-x-8 overflow-hidden sm:flex-row">
