@@ -51,13 +51,13 @@ export const outcomeImages = [1, 2, 3, 4];
     <HoverProjectLinks />
   </header>
 
-  <figure className="relative mx-auto w-full max-w-3xl aspect-video overflow-hidden bg-muted">
+  <figure className="relative mx-auto w-full max-w-3xl aspect-video overflow-hidden bg-muted/50">
     <Image 
       alt={`${post.title} hero image`} 
       src={post.heroImage} 
       fill
       loading="eager"
-      className="object-contain bg-muted/50 scale-125"
+      className="object-contain scale-125"
     />
     <figcaption className="sr-only">
       {post.title} hero image
@@ -84,7 +84,7 @@ Students use the Hover Mobility app to find nearby bikes, unlock them via QR, ri
 Behind the scenes, a Flutter app, Node.js backend, and IoT-enabled bikes work together to deliver a reliable experience, even in low-connectivity environments.
 
 
-<div className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-8 py-8 sm:grid-cols-3">
+<div className="mx-auto grid w-full max-w-4xl grid-cols-1 gap-8 py-8 sm:grid-cols-3">
   {howItWorksSteps.map((step) => (
     <figure key={step.title} className="flex flex-col gap-4">
       <div className="relative aspect-1/2 max-h-96 w-full overflow-hidden">
@@ -122,7 +122,7 @@ I designed the system around an event-driven architecture, with a Node.js backen
 The diagram below illustrates how the mobile app, backend, and IoT-enabled bikes interact within the system.
 
 
-<figure className="flex flex-col gap-2 mx-auto max-w-5xl w-full">
+<figure className="flex flex-col gap-2 mx-auto max-w-4xl w-full">
   <div className="relative aspect-8/3 w-full overflow-hidden">
     <InteractiveImage
       src="/assets/001/system-architecture-light.svg"
@@ -158,7 +158,7 @@ The app generated short-lived offline tokens when connected, allowing users to s
 Once connectivity was restored, the app reconciled ride state with the server.
 The diagram below illustrates this flow.
 
-<figure className="mx-auto flex w-full max-w-5xl flex-col gap-2">
+<figure className="mx-auto flex w-full max-w-4xl flex-col gap-2">
   <div className="relative aspect-8/3 w-full overflow-hidden">
     <InteractiveImage
       src="/assets/001/reliable-connection-light.svg"

@@ -13,7 +13,11 @@ export default function NotFound() {
       <TypographyP className="text-muted-foreground max-w-md">
         The page you are looking for doesn&apos;t exist or has been moved.
       </TypographyP>
-      <Button className="mt-4" render={<Link href="/">Return Home</Link>} nativeButton={false} />
+      <Button
+        className="mt-4"
+        render={<Link href="/">Return Home</Link>}
+        nativeButton={false}
+      />
     </main>
   );
 }

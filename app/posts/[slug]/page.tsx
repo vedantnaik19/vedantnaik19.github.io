@@ -50,7 +50,7 @@ export default async function PostPage({
     const { default: PostContent } = await import(`@/content/${slug}.mdx`);
 
     return (
-      <main className="container mx-auto flex max-w-5xl flex-col gap-12 px-6 pt-8 pb-24 md:gap-20 md:pt-16">
+      <main className="container mx-auto flex max-w-5xl flex-1 flex-col gap-12 px-6 pt-8 pb-24 md:pt-16">
         <div className="mx-auto flex w-full max-w-3xl">
           <Breadcrumb>
             <BreadcrumbList>

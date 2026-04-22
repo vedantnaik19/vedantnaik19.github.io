@@ -35,12 +35,13 @@ Check out the live portfolio here: **[https://vedantnaik19.github.io](https://ve
 
 This project is open-source and I would love for you to get involved!
 
-- **Fork & Use:** Feel free to fork this repo and use it as a template for your own portfolio. 
+- **Fork & Use:** Feel free to fork this repo and use it as a template for your own portfolio.
 - **Contribute:** Found a bug? Have a design suggestion? Check out the [Contributing Guide](./CONTRIBUTING.md).
 - **Showcase:** If you've used this code for your own site, open a PR to add your name to the list below!
 
 ### 🌟 Built with this Template
-*Your name could be here!*
+
+_Your name could be here!_
 
 ## 🚀 Getting Started
 

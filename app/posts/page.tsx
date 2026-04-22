@@ -18,7 +18,6 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { Separator } from "@/components/ui/separator";
 import { posts } from "@/lib/posts";
 
 const title = "Projects & Writing";
@@ -37,7 +36,7 @@ export default function PostsPage() {
   });
 
   return (
-    <main className="container mx-auto flex flex-1 flex-col gap-12 px-6 pt-8 pb-24 md:gap-20 md:pt-16">
+    <main className="container mx-auto flex max-w-5xl flex-1 flex-col gap-12 px-6 pt-8 pb-24 md:pt-16">
       {/* Breadcrumb */}
 
       <div className="mx-auto flex w-full max-w-3xl">
@@ -55,11 +54,9 @@ export default function PostsPage() {
       </div>
 
       {/* Header */}
-      <section className="mx-auto flex w-full max-w-3xl flex-col gap-10">
+      <section className="mx-auto flex w-full max-w-3xl flex-col gap-12">
         <header className="flex flex-col gap-2">
-          <TypographyH2 className="text-3xl font-bold tracking-tight">
-            {title}
-          </TypographyH2>
+          <TypographyH2>{title}</TypographyH2>
 
           <TypographyLarge className="text-muted-foreground">
             {description}
@@ -67,10 +64,10 @@ export default function PostsPage() {
         </header>
 
         {/* Posts List */}
-        <ul className="flex w-full flex-col gap-3">
-          {orderedPosts.map((post, index) => (
-            <li key={post.slug} className="flex flex-col gap-3">
-              <article className="group relative flex w-full flex-col gap-x-8 overflow-hidden sm:flex-row">
+        <ul className="divide-border flex w-full flex-col divide-y">
+          {orderedPosts.map((post) => (
+            <li key={post.slug} className="py-6 first:pt-0 last:pb-0">
+              <article className="group relative flex w-full flex-col gap-4 overflow-hidden sm:flex-row sm:gap-8">
                 <Link
                   href={`/posts/${post.slug}`}
                   className="absolute inset-0 z-10"
@@ -84,13 +81,14 @@ export default function PostsPage() {
                     src={post.heroImage}
                     alt={`${post.title} hero image`}
                     fill
-                    className="bg-muted/50 object-contain transition-transform duration-300 ease-out group-hover:scale-[1.02]"
+                    sizes="(max-width: 639px) 100vw, 16rem"
+                    className="bg-card/10 group-hover:bg-card/50 object-contain opacity-85 transition-all duration-300 ease-out group-hover:opacity-100"
                   />
                 </div>
 
                 {/* Content */}
                 <div className="flex flex-col justify-center gap-4">
-                  <PostMeta post={post} />
+                  <PostMeta showUpdated={false} post={post} />
 
                   <div className="flex flex-col gap-2">
                     <TypographyH4 className="group-hover:underline">
@@ -104,9 +102,6 @@ export default function PostsPage() {
                 </div>
               </article>
 
-              {index < orderedPosts.length - 1 && (
-                <Separator className="bg-border my-6 h-px" />
-              )}
             </li>
           ))}
 

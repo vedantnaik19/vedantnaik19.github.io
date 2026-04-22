@@ -20,14 +20,14 @@ export function Cover({
   return (
     <section
       className={cn(
-        "bg-muted h-[40vh] w-full overflow-hidden md:h-[80vh]",
+        "bg-muted h-96 w-full overflow-hidden md:h-screen",
         className
       )}
     >
       <div className="flex h-full flex-row items-center">
         <div
           className={cn(
-            "flex flex-2 items-center justify-end px-6 text-right text-4xl font-extrabold tracking-tight md:px-12 md:text-6xl",
+            "font-heading flex flex-2 items-center justify-end px-6 text-right text-4xl font-bold tracking-tight md:px-12 md:text-6xl",
             leftClassName
           )}
         >
