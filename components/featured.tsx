@@ -62,7 +62,7 @@ const projects = [
 
 export function Featured() {
   return (
-    <SectionBlock>
+    <SectionBlock label="Featured Work" className="lg:flex-1 lg:justify-center">
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {projects.map((project, i) => (
           <FeaturedCard key={i} {...project} />
