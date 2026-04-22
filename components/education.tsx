@@ -1,4 +1,5 @@
-import { SectionLabel, TypographyH4, TypographyMuted } from "./typography";
+import { SectionBlock } from "./section-block";
+import { TypographyH4, TypographyMuted } from "./typography";
 
 interface EducationItem {
   degree: string;
@@ -20,22 +21,23 @@ const education: EducationItem[] = [
 ];
 export function Education() {
   return (
-    <section className="flex w-full flex-col gap-6">
-      <SectionLabel>Education</SectionLabel>
-
-      <div className="flex flex-col gap-8">
+    <SectionBlock label="Education">
+      <div className="flex flex-col gap-12">
         {education.map((item) => (
-          <div key={`${item.university}-${item.degree}`}>
+          <div
+            key={`${item.university}-${item.degree}`}
+            className="flex flex-col gap-y-2"
+          >
             <div className="flex flex-col items-start justify-between gap-1 sm:flex-row sm:items-baseline sm:gap-0">
               <TypographyH4>{item.degree}</TypographyH4>
-              <TypographyMuted as="span">{item.year}</TypographyMuted>
+              <TypographyMuted as="span" className="font-mono">
+                {item.year}
+              </TypographyMuted>
             </div>
-            <TypographyMuted className="mt-1">
-              {item.university}
-            </TypographyMuted>
+            <TypographyMuted>{item.university}</TypographyMuted>
           </div>
         ))}
       </div>
-    </section>
+    </SectionBlock>
   );
 }

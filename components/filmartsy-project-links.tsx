@@ -1,4 +1,4 @@
-import { ArrowUpRightIcon } from "lucide-react";
+import { ExternalLink } from "./external-link";
 
 const LinkedInIcon = ({ className }: { className?: string }) => (
   <svg
@@ -14,16 +14,12 @@ const LinkedInIcon = ({ className }: { className?: string }) => (
 export function FilmArtsyProjectLinks() {
   return (
     <div className="flex flex-wrap gap-4">
-      <a
+      <ExternalLink
         href="https://www.linkedin.com/company/filmartsy/"
-        target="_blank"
-        className="nav-link flex items-center gap-1"
-        rel="noopener noreferrer"
+        icon={LinkedInIcon}
       >
-        <LinkedInIcon className="h-3.5 w-3.5" aria-hidden="true" />
-        <span>LinkedIn</span>
-        <ArrowUpRightIcon className="h-3 w-3" aria-hidden="true" />
-      </a>
+        LinkedIn
+      </ExternalLink>
     </div>
   );
 }

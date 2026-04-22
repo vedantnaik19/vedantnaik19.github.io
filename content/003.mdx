@@ -71,13 +71,15 @@ As the app expanded with rich profiles, dynamic feeds, and collaboration feature
 
 I implemented **MobX** for state management, enabling a clear separation of concerns through observable state, actions, and reactions. This architectural shift resulted in highly predictable state updates, improved codebase maintainability, and faster iteration cycles for new features.
 
-#### Performance Optimization
+#### Performance Optimisation
 Rendering image-heavy feeds caused noticeable performance bottlenecks, particularly on lower-end devices.
 
-To solve this, I implemented optimised image caching and resolution-aware content delivery, ensuring the app only requested and served appropriately sized assets based on device screen density. Combined with lazy loading and heavily optimized widget rebuilds, this achieved consistently smooth scrolling and a vastly improved user experience.
+To solve this, I implemented optimised image caching and resolution-aware content delivery, ensuring the app only requested and served appropriately sized assets based on device screen density. Combined with lazy loading and heavily optimised widget rebuilds, this achieved consistently smooth scrolling and a vastly improved user experience.
 
-### Key Learnings
+### Outcomes & Learnings
 
-- Design state management early, it becomes costly to refactor later
-- Align on API contracts upfront to reduce integration bugs
-- Performance is not a phase, it's a continuous process
+The project reinforced a recurring pattern in mobile product delivery: architecture and performance decisions made early have outsized downstream impact on delivery speed and user experience.
+
+- Design state management early; it becomes costly to refactor later.
+- Align on API contracts upfront to reduce integration bugs.
+- Performance is not a phase, it's a continuous process.

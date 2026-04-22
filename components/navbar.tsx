@@ -15,11 +15,11 @@ import { ThemeToggle } from "./theme-toggle";
 
 export function Navbar() {
   return (
-    <nav className="bg-background sticky top-0 z-50 w-full border-b py-4">
+    <nav className="bg-background/85 sticky top-0 z-50 w-full border-b py-3 backdrop-blur-md">
       <div className="container mx-auto flex max-w-5xl items-center justify-between px-6">
         <Link
           href="/"
-          className="hover:text-foreground/80 text-xl font-bold tracking-tighter transition-opacity"
+          className="hover:text-foreground/80 inline-flex h-9 items-center justify-center px-2 font-mono text-xl font-semibold tracking-tight transition-opacity"
           aria-label="Vedant Naik - Home"
         >
           वे

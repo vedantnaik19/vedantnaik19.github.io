@@ -41,7 +41,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ),
     blockquote: (props) => (
       <blockquote
-        className="text-muted-foreground mx-auto w-full my-6 max-w-3xl border-l pl-6 italic *:m-0"
+        className="text-muted-foreground mx-auto my-6 w-full max-w-3xl border-l pl-6 italic *:m-0"
         {...props}
       />
     ),

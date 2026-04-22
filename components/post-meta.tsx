@@ -2,7 +2,13 @@ import { Post } from "@/lib/posts";
 
 import { Badge } from "./ui/badge";
 
-export function PostMeta({ post }: { post: Post }) {
+export function PostMeta({
+  post,
+  showUpdated = true,
+}: {
+  post: Post;
+  showUpdated?: boolean;
+}) {
   const dateLabel = post.date?.toLocaleDateString("en-GB", {
     day: "numeric",
     month: "short",
@@ -12,7 +18,7 @@ export function PostMeta({ post }: { post: Post }) {
   return (
     <section className="flex flex-wrap items-center gap-2 text-sm">
       {post.category && (
-        <Badge variant="secondary" className="px-2 py-0.5 text-xs font-medium">
+        <Badge variant="secondary" className="px-2 py-0.5">
           {post.category}
         </Badge>
       )}
@@ -22,7 +28,9 @@ export function PostMeta({ post }: { post: Post }) {
       )}
 
       {dateLabel && (
-        <span className="text-muted-foreground">Updated {dateLabel}</span>
+        <span className="text-muted-foreground font-mono">
+          {showUpdated ? `Updated ${dateLabel}` : dateLabel}
+        </span>
       )}
     </section>
   );

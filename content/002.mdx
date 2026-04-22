@@ -29,13 +29,13 @@ export const tools = "Next.js, AI SDK, Gemini Flash, Azure Speech";
     />
   </header>
 
-  <figure className="relative mx-auto w-full max-w-3xl aspect-video overflow-hidden bg-muted">
+  <figure className="relative mx-auto w-full max-w-3xl aspect-video overflow-hidden bg-muted/50">
     <Image
       alt={`${post.title} hero image`}
       src={post.heroImage}
       fill
       loading="eager"
-      className="object-contain bg-muted/50 scale-125"
+      className="object-contain scale-125"
     />
     <figcaption className="sr-only">
       {post.title} hero image
@@ -67,7 +67,7 @@ I led the concept, system design, and full-stack implementation. My focus was on
 At its core, the system runs on parallel perception and reasoning loops.  
 Visual context is processed continuously in the background, allowing the tutor to respond instantly when the user speaks.
 
-<figure className="mx-auto flex w-full max-w-5xl flex-col gap-2">
+<figure className="mx-auto flex w-full max-w-4xl flex-col gap-2">
   <div className="relative aspect-8/3 w-full overflow-hidden">
     <InteractiveImage
       src="/assets/002/system-architecture-light.svg"
@@ -134,6 +134,6 @@ This introduced minimal delay but significantly improved naturalness and flow.
 
 ### Outcomes & Learnings
 
-The result was an experience that felt intuitive and futuristic, a tutor capable of guiding students through problems simply by observing their work. Demonstrating the prototype sparked meaningful discussions within the AI in Education community around the future of interactive learning.
+The result was a working end-to-end prototype that could observe a live problem, reason over multimodal context, and respond with coherent voice guidance in near real time. Demonstrating the prototype sparked concrete discussion within the AI in Education community about practical architecture patterns for responsive multimodal tutoring.
 
-The key insight was that perceived performance matters more than raw speed. By parallelising vision and speech, the system felt faster and more responsive than traditional sequential approaches.
+The key learning was that perceived responsiveness mattered more than isolated model latency. Parallelising vision and speech made the interaction feel faster and more natural than a sequential request-response flow.

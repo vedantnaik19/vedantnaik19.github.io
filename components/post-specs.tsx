@@ -1,5 +1,7 @@
 import { Briefcase, Calendar, Hammer, LucideIcon } from "lucide-react";
 
+import { cn } from "@/lib/utils";
+
 import { Badge } from "./ui/badge";
 import { TypographyXSmall } from "./typography";
 
@@ -31,10 +33,12 @@ function SpecItem({
   icon: Icon,
   label,
   value,
+  monoValue = false,
 }: {
   icon: LucideIcon;
   label: string;
   value: string;
+  monoValue?: boolean;
 }) {
   return (
     <div className="flex flex-col gap-2">
@@ -43,7 +47,12 @@ function SpecItem({
         <TypographyXSmall>{label}</TypographyXSmall>
       </div>
 
-      <div className="text-sm leading-snug font-medium">
+      <div
+        className={cn(
+          "text-foreground text-sm leading-relaxed font-medium",
+          monoValue && "font-mono"
+        )}
+      >
         <Value value={value} />
       </div>
     </div>
@@ -52,9 +61,9 @@ function SpecItem({
 
 export function PostSpecs({ timeline, role, tools }: PostSpecsProps) {
   return (
-    <div className="border-y py-16">
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-[0.6fr_1fr_1fr]">
-        <SpecItem icon={Calendar} label="Timeline" value={timeline} />
+    <div className="border-y py-12">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+        <SpecItem icon={Calendar} label="Timeline" value={timeline} monoValue />
         <SpecItem icon={Briefcase} label="Role" value={role} />
         <SpecItem icon={Hammer} label="Tools" value={tools} />
       </div>

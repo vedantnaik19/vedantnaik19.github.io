@@ -1,9 +1,5 @@
-import {
-  SectionLabel,
-  TypographyH4,
-  TypographyMuted,
-  TypographyP,
-} from "./typography";
+import { SectionBlock } from "./section-block";
+import { TypographyH4, TypographyMuted, TypographyP } from "./typography";
 
 interface ExperienceItem {
   role: string;
@@ -45,18 +41,21 @@ const experience: ExperienceItem[] = [
 
 export function Experience() {
   return (
-    <section className="flex w-full flex-col gap-6">
-      <SectionLabel>Experience</SectionLabel>
-
-      <div className="flex flex-col gap-8">
+    <SectionBlock label="Experience">
+      <div className="flex flex-col gap-12">
         {experience.map((item) => (
-          <div key={`${item.company}-${item.role}`}>
+          <div
+            key={`${item.company}-${item.role}`}
+            className="flex flex-col gap-y-2"
+          >
             <div className="flex flex-col items-start justify-between gap-1 sm:flex-row sm:items-baseline sm:gap-0">
               <TypographyH4>{item.role}</TypographyH4>
-              <TypographyMuted as="span">{item.period}</TypographyMuted>
+              <TypographyMuted as="span" className="font-mono">
+                {item.period}
+              </TypographyMuted>
             </div>
 
-            <TypographyMuted className="mt-1">{item.company}</TypographyMuted>
+            <TypographyMuted>{item.company}</TypographyMuted>
 
             {item.description && (
               <TypographyP className="mt-2 max-w-prose">
@@ -66,6 +65,6 @@ export function Experience() {
           </div>
         ))}
       </div>
-    </section>
+    </SectionBlock>
   );
 }

@@ -9,7 +9,12 @@ interface TypographyProps {
 
 export function TypographyH1({ children, className }: TypographyProps) {
   return (
-    <h1 className={cn("text-5xl font-extrabold tracking-tight", className)}>
+    <h1
+      className={cn(
+        "font-mono text-4xl font-bold tracking-tight md:text-5xl",
+        className
+      )}
+    >
       {children}
     </h1>
   );
@@ -17,7 +22,12 @@ export function TypographyH1({ children, className }: TypographyProps) {
 
 export function TypographyH2({ children, className }: TypographyProps) {
   return (
-    <h2 className={cn("text-4xl font-extrabold tracking-tight", className)}>
+    <h2
+      className={cn(
+        "font-mono text-3xl font-bold tracking-tight md:text-4xl",
+        className
+      )}
+    >
       {children}
     </h2>
   );
@@ -27,7 +37,8 @@ export function TypographyH3({ children, className }: TypographyProps) {
   return (
     <h3
       className={cn(
-        "text-foreground/90 text-2xl font-bold tracking-tight",
+        "text-foreground/90 font-mono text-2xl font-semibold tracking-tight",
+        "md:text-3xl",
         className
       )}
     >
@@ -40,7 +51,8 @@ export function TypographyH4({ children, className }: TypographyProps) {
   return (
     <h4
       className={cn(
-        "text-foreground/90 text-xl font-semibold tracking-tight",
+        "text-foreground/90 font-mono text-xl font-semibold tracking-tight",
+        "md:text-2xl",
         className
       )}
     >
@@ -51,33 +63,34 @@ export function TypographyH4({ children, className }: TypographyProps) {
 
 export function TypographyH5({ children, className }: TypographyProps) {
   return (
-    <h4
+    <h5
       className={cn(
-        "text-foreground/90 text-lg font-semibold tracking-tight",
+        "text-foreground/90 font-mono text-lg font-semibold tracking-tight",
+        "md:text-xl",
         className
       )}
     >
       {children}
-    </h4>
+    </h5>
   );
 }
 
 export function TypographyH6({ children, className }: TypographyProps) {
   return (
-    <h4
+    <h6
       className={cn(
-        "text-foreground/90 text-base font-semibold tracking-tight",
+        "text-foreground/90 font-mono text-base font-semibold tracking-tight",
         className
       )}
     >
       {children}
-    </h4>
+    </h6>
   );
 }
 
 export function TypographyP({ children, className }: TypographyProps) {
   return (
-    <p className={cn("text-foreground/80 leading-relaxed", className)}>
+    <p className={cn("text-foreground text-base leading-7", className)}>
       {children}
     </p>
   );
@@ -85,7 +98,7 @@ export function TypographyP({ children, className }: TypographyProps) {
 
 export function TypographyLarge({ children, className }: TypographyProps) {
   return (
-    <p className={cn("text-foreground/80 text-xl leading-relaxed", className)}>
+    <p className={cn("text-foreground text-xl leading-8", className)}>
       {children}
     </p>
   );
@@ -93,14 +106,26 @@ export function TypographyLarge({ children, className }: TypographyProps) {
 
 export function TypographySmall({ children, className }: TypographyProps) {
   return (
-    <p className={cn("text-foreground/80 text-sm font-medium", className)}>
+    <p
+      className={cn(
+        "text-muted-foreground text-sm font-medium tracking-wide",
+        className
+      )}
+    >
       {children}
     </p>
   );
 }
 export function TypographyXSmall({ children, className }: TypographyProps) {
   return (
-    <p className={cn("text-foreground/80 text-xs", className)}>{children}</p>
+    <p
+      className={cn(
+        "text-muted-foreground font-mono text-xs tracking-wide",
+        className
+      )}
+    >
+      {children}
+    </p>
   );
 }
 
@@ -118,7 +143,12 @@ export function TypographyMuted({
 
 export function SectionLabel({ children, className }: TypographyProps) {
   return (
-    <p className={cn("text-muted-foreground text-sm font-medium", className)}>
+    <p
+      className={cn(
+        "text-muted-foreground font-mono text-xs font-medium tracking-widest uppercase",
+        className
+      )}
+    >
       {children}
     </p>
   );
