@@ -4,10 +4,10 @@ import { Badge } from "./ui/badge";
 
 export function PostMeta({
   post,
-  showUpdated,
+  showUpdated = true,
 }: {
   post: Post;
-  showUpdated?: boolean | true;
+  showUpdated?: boolean;
 }) {
   const dateLabel = post.date?.toLocaleDateString("en-GB", {
     day: "numeric",
