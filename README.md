@@ -38,7 +38,6 @@ This project is open-source and I would love for you to get involved!
 - **Fork & Use:** Feel free to fork this repo and use it as a template for your own portfolio.
 - **Contribute:** Found a bug? Have a design suggestion? Check out the [Contributing Guide](./CONTRIBUTING.md).
 
-
 ## 🚀 Getting Started
 
 First, install the dependencies:
