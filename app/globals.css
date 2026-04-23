@@ -147,7 +147,7 @@
   }
 
   .nav-link {
-    @apply text-foreground/80 hover:text-foreground focus-visible:text-foreground focus-visible:ring-ring/50 inline-flex items-center gap-1 font-mono text-sm font-medium tracking-wide underline-offset-4 transition-colors duration-300 ease-out hover:underline focus-visible:ring-1 focus-visible:underline focus-visible:outline-none;
+    @apply text-foreground/80 hover:text-foreground focus-visible:text-foreground focus-visible:ring-ring/50 inline-flex items-center gap-1 font-mono text-sm font-medium tracking-wide underline-offset-4 transition-colors duration-300 ease-out hover:underline focus-visible:underline focus-visible:ring-1 focus-visible:outline-none;
   }
 
   .text-link {

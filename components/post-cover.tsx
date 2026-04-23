@@ -13,7 +13,7 @@ export function PostCover({ src, sizes, className, priority }: PostCoverProps) {
   return (
     <div
       className={cn(
-        "relative aspect-video w-full overflow-hidden bg-card/10",
+        "bg-card/10 relative aspect-video w-full overflow-hidden",
         className
       )}
     >

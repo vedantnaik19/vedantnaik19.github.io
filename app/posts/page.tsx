@@ -107,7 +107,7 @@ export default function PostsPage() {
                     <div className="flex flex-col gap-3">
                       <div className="flex items-start justify-between gap-3">
                         <div className="flex flex-col gap-1">
-                          <h3 className="text-foreground/90 font-mono text-sm font-medium tracking-[-0.01em] underline-offset-4 transition-colors duration-300 ease-out group-hover:text-foreground group-hover:underline">
+                          <h3 className="text-foreground/90 group-hover:text-foreground font-mono text-sm font-medium tracking-[-0.01em] underline-offset-4 transition-colors duration-300 ease-out group-hover:underline">
                             {post.title}
                           </h3>
                           <TypographyMuted className="font-mono text-xs tracking-widest uppercase">

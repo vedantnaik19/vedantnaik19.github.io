@@ -62,7 +62,7 @@ function SpecItem({
 export function PostSpecs({ timeline, role, tools }: PostSpecsProps) {
   return (
     <div>
-      <div className="surface-card grid gap-px bg-border p-px sm:grid-cols-3">
+      <div className="surface-card bg-border grid gap-px p-px sm:grid-cols-3">
         <SpecItem icon={Calendar} label="Timeline" value={timeline} monoValue />
         <SpecItem icon={Briefcase} label="Role" value={role} />
         <SpecItem icon={Hammer} label="Tools" value={tools} />

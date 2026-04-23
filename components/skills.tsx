@@ -28,7 +28,7 @@ export function Skills() {
               {category}
             </TypographyMuted>
 
-            <p className="mt-5 max-w-sm font-mono text-sm leading-7 text-foreground/90">
+            <p className="text-foreground/90 mt-5 max-w-sm font-mono text-sm leading-7">
               {items.join(" • ")}
             </p>
           </div>
