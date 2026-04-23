@@ -13,12 +13,13 @@ export function ThemeToggle() {
     <Button
       variant="ghost"
       size="icon"
+      aria-label="Toggle theme"
       className="cursor-pointer"
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
     >
-      <Sun className="rotate-0 transition-all dark:scale-0 dark:-rotate-90" />
+      <Sun className="motion-media rotate-0 dark:scale-0 dark:-rotate-90" />
 
-      <Moon className="absolute scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />
+      <Moon className="motion-media absolute scale-0 rotate-90 dark:scale-100 dark:rotate-0" />
     </Button>
   );
 }

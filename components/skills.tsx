@@ -1,5 +1,5 @@
 import { SectionBlock } from "./section-block";
-import { TypographyMuted, TypographyP } from "./typography";
+import { TypographyMuted } from "./typography";
 
 const skills = {
   Languages: ["TypeScript", "Python", "Java", "Kotlin", "SQL"],
@@ -7,6 +7,7 @@ const skills = {
   Backend: ["Node.js", "Spring Boot", "FastAPI"],
   Infrastructure: ["AWS", "CI/CD"],
   Mobile: ["Android", "Flutter"],
+  AI: ["LlamaIndex", "LangChain"],
 };
 
 export function Skills() {
@@ -14,17 +15,22 @@ export function Skills() {
 
   return (
     <SectionBlock label="Skills">
-      <div className="flex flex-col gap-2">
+      <div className="surface-card bg-border grid gap-px p-px sm:grid-cols-2 lg:grid-cols-3">
         {skillsEntries.map(([category, items]) => (
-          <div key={category}>
-            <div className="grid grid-cols-1 gap-1 py-3 sm:grid-cols-2 sm:items-baseline sm:gap-0">
-              <TypographyMuted as="span" className="font-medium">
-                {category}
-              </TypographyMuted>
-              <TypographyP className="text-left text-sm sm:text-right">
-                {items.join(", ")}
-              </TypographyP>
-            </div>
+          <div
+            key={category}
+            className="surface-row-hover bg-background/95 p-4 sm:min-h-32"
+          >
+            <TypographyMuted
+              as="span"
+              className="font-mono text-xs tracking-widest uppercase"
+            >
+              {category}
+            </TypographyMuted>
+
+            <p className="mt-5 max-w-sm font-mono text-sm leading-7 text-foreground/90">
+              {items.join(" • ")}
+            </p>
           </div>
         ))}
       </div>

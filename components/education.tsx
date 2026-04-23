@@ -22,19 +22,22 @@ const education: EducationItem[] = [
 export function Education() {
   return (
     <SectionBlock label="Education">
-      <div className="flex flex-col gap-12">
+      <div className="flex flex-col border-b">
         {education.map((item) => (
           <div
             key={`${item.university}-${item.degree}`}
-            className="flex flex-col gap-y-2"
+            className="surface-row-hover grid gap-3 border-t py-5 md:grid-cols-[8rem_minmax(0,1fr)] md:gap-8 md:px-3"
           >
-            <div className="flex flex-col items-start justify-between gap-1 sm:flex-row sm:items-baseline sm:gap-0">
-              <TypographyH4>{item.degree}</TypographyH4>
+            <div>
               <TypographyMuted as="span" className="font-mono">
                 {item.year}
               </TypographyMuted>
             </div>
-            <TypographyMuted>{item.university}</TypographyMuted>
+
+            <div className="flex flex-col gap-y-2">
+              <TypographyH4>{item.degree}</TypographyH4>
+              <TypographyMuted>{item.university}</TypographyMuted>
+            </div>
           </div>
         ))}
       </div>

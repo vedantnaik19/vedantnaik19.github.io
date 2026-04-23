@@ -130,14 +130,51 @@
 }
 
 @layer components {
+  .surface-card {
+    @apply border-border/80 bg-card/20 shadow-[0_1px_0_theme(colors.foreground/5%)] border;
+  }
+
+  .surface-card-hover {
+    @apply hover:bg-card/35 hover:border-foreground/25 transition-colors duration-300 ease-out;
+  }
+
+  .surface-row-hover {
+    @apply hover:bg-card/20 transition-colors duration-300 ease-out;
+  }
+
+  .focus-ring {
+    @apply focus-visible:ring-ring/70 focus-visible:ring-offset-background outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+  }
+
   .nav-link {
-    @apply text-foreground/80 hover:text-foreground focus-visible:text-foreground inline-flex items-center gap-1 font-mono text-sm font-medium tracking-wide underline-offset-4 transition-colors hover:underline focus-visible:underline;
+    @apply text-foreground/80 hover:text-foreground focus-visible:text-foreground focus-visible:ring-ring/50 inline-flex items-center gap-1 font-mono text-sm font-medium tracking-wide underline-offset-4 transition-colors duration-300 ease-out hover:underline focus-visible:ring-1 focus-visible:underline focus-visible:outline-none;
+  }
+
+  .text-link {
+    @apply text-foreground/85 hover:text-foreground focus-visible:text-foreground focus-visible:ring-ring/50 underline decoration-current/30 underline-offset-4 transition-colors duration-300 ease-out focus-visible:ring-1 focus-visible:outline-none;
+  }
+
+  .cta-link {
+    @apply border-border/80 bg-card/20 text-foreground hover:bg-card/35 hover:border-foreground/25 focus-visible:ring-ring/70 focus-visible:ring-offset-background inline-flex h-10 items-center justify-center gap-2 border px-4 font-mono text-xs font-semibold tracking-wide uppercase transition-colors duration-300 ease-out focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none;
+  }
+
+  .cta-link-secondary {
+    @apply text-foreground/80 bg-transparent;
+  }
+
+  .motion-icon {
+    @apply transition-transform duration-300 ease-out;
+  }
+
+  .motion-media {
+    @apply transition-all duration-300 ease-out;
   }
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
+    text-rendering: geometricprecision;
   }
   * {
     @apply border-border outline-ring/50;
@@ -149,5 +186,9 @@
       linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
       linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
     background-size: var(--grid-size) var(--grid-size);
+  }
+
+  ::selection {
+    @apply bg-foreground text-background;
   }
 }
