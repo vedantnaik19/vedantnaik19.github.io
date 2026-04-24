@@ -23,7 +23,7 @@ export const posts: Post[] = [
       "A real-time AI tutor using vision, speech, and parallel reasoning",
     slug: "002",
     category: "Project",
-    timeline: "Internal prototype",
+    timeline: "Nov 2025 — Dec 2025",
     heroImage: "/assets/002/cover.webp",
   },
   {
