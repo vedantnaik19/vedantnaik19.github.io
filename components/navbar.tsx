@@ -18,7 +18,7 @@ export function Navbar() {
   const isWorkActive = pathname.startsWith("/posts");
 
   return (
-    <nav className="bg-background/85 sticky top-0 z-50 w-full border-b backdrop-blur-md">
+    <nav className="bg-background/85 sticky top-0 z-50 w-full border-b py-1 backdrop-blur-md">
       <div className="container mx-auto flex max-w-5xl items-center justify-between px-6">
         <Link
           href="/"

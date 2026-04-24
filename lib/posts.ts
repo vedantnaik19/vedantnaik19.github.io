@@ -36,3 +36,13 @@ export const posts: Post[] = [
     heroImage: "/assets/003/cover.webp",
   },
 ];
+
+export function getPost(slug: string): Post {
+  const post = posts.find((p) => p.slug === slug);
+
+  if (!post) {
+    throw new Error(`Post not found: ${slug}`);
+  }
+
+  return post;
+}

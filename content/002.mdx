@@ -5,13 +5,13 @@ import { PostMeta } from "@/components/post-meta";
 import { PostSpecs } from "@/components/post-specs";
 import { PostTitle } from "@/components/post-title";
 
-import { posts } from "@/lib/posts";
+import { getPost } from "@/lib/posts";
 
-export const post = posts.find((p) => p.slug === "002");
+export const post = getPost("002");
 
 export const metadata = {
-    title: post?.title,
-    description: post?.description,
+    title: post.title,
+    description: post.description,
 };
 
 export const role = "AI Engineer, System Designer";
@@ -29,7 +29,7 @@ export const tools = "Next.js, AI SDK, Gemini Flash, Azure Speech";
     />
   </header>
 
-  <figure className="surface-card relative mx-auto aspect-video w-full max-w-3xl overflow-hidden bg-card/10">
+  <figure className="relative mx-auto aspect-video w-full max-w-3xl overflow-hidden bg-card/10">
     <Image
       alt={`${post.title} hero image`}
       src={post.heroImage}

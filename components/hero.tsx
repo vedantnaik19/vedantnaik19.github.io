@@ -14,7 +14,7 @@ export function Hero() {
     <section className="grid min-h-72 w-full flex-1 gap-8 border-b py-10 md:grid-cols-[minmax(0,1fr)_16rem] md:items-end md:py-14">
       <div className="flex flex-col gap-y-5">
         <div className="flex flex-col gap-3">
-          <SectionLabel>Portfolio / Software Engineer</SectionLabel>
+          <SectionLabel>Software Engineer</SectionLabel>
           <TypographyH1>Vedant Naik</TypographyH1>
         </div>
 

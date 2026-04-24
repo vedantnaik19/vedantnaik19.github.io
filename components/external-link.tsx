@@ -13,6 +13,7 @@ interface ExternalLinkProps {
         className?: string;
         "aria-hidden"?: AriaAttributes["aria-hidden"];
       }>;
+  variant?: "nav" | "cta";
   className?: string;
 }
 
@@ -20,6 +21,7 @@ export function ExternalLink({
   href,
   children,
   icon: Icon,
+  variant = "nav",
   className,
 }: ExternalLinkProps) {
   return (
@@ -27,7 +29,10 @@ export function ExternalLink({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={cn("nav-link", className)}
+      className={cn(
+        variant === "cta" ? "cta-link cta-link-secondary" : "nav-link",
+        className
+      )}
     >
       {Icon && <Icon className="h-3.5 w-3.5" aria-hidden="true" />}
       <span>{children}</span>

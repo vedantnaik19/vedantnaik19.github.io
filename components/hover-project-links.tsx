@@ -8,10 +8,15 @@ export function HoverProjectLinks() {
       <ExternalLink
         href="https://play.google.com/store/apps/details?id=co.auter.hover&hl=en_GB"
         icon={Smartphone}
+        variant="cta"
       >
         App
       </ExternalLink>
-      <ExternalLink href="https://www.hover-mobility.com/" icon={Globe}>
+      <ExternalLink
+        href="https://www.hover-mobility.com/"
+        icon={Globe}
+        variant="cta"
+      >
         Website
       </ExternalLink>
     </div>

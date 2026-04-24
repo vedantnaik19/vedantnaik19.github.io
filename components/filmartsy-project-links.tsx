@@ -17,6 +17,7 @@ export function FilmArtsyProjectLinks() {
       <ExternalLink
         href="https://www.linkedin.com/company/filmartsy/"
         icon={LinkedInIcon}
+        variant="cta"
       >
         LinkedIn
       </ExternalLink>
