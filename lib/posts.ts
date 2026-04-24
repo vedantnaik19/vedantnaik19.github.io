@@ -20,16 +20,16 @@ export const posts: Post[] = [
   {
     title: "Multimodal AI Tutor",
     description:
-      "A real-time multimodal AI tutor that sees, listens, and guides students through problems using parallel perception and reasoning",
+      "A real-time AI tutor using vision, speech, and parallel reasoning",
     slug: "002",
     category: "Project",
-    timeline: "Nov 2025 — Dec 2025",
+    timeline: "Internal prototype",
     heroImage: "/assets/002/cover.webp",
   },
   {
     title: "FilmArtsy",
     description:
-      "A social media platform designed specifically for film industry professionals",
+      "A professional network for film crews, creators, and collaborators",
     slug: "003",
     category: "Project",
     timeline: "May 2019 — Jun 2020",
