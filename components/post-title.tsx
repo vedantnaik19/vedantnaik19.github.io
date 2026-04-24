@@ -10,7 +10,7 @@ export function PostTitle({ title, description }: PostTitleProps) {
     <div className="flex flex-col gap-3">
       <TypographyH2 className="max-w-3xl leading-tight">{title}</TypographyH2>
       {description && (
-        <TypographyLarge className="max-w-2xl text-base md:text-lg">
+        <TypographyLarge className="text-muted-foreground max-w-2xl text-base md:text-lg">
           {description}
         </TypographyLarge>
       )}

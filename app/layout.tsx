@@ -68,6 +68,12 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="flex min-h-full flex-col font-sans">
+        <a
+          href="#main-content"
+          className="focus-ring bg-background text-foreground fixed top-3 left-3 z-[60] -translate-y-20 border px-3 py-2 font-mono text-xs font-medium transition-transform duration-300 ease-out focus-visible:translate-y-0"
+        >
+          Skip to content
+        </a>
         <Script
           src="https://cloud.umami.is/script.js"
           data-website-id="0a4c86a6-5193-4af4-b91a-92e37333afcb"

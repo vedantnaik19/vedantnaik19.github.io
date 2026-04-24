@@ -1,11 +1,12 @@
 import { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 
-import { PostMeta } from "@/components/post-meta";
+import { ArrowRight } from "lucide-react";
+
+import { PostCover } from "@/components/post-cover";
 import {
+  SectionLabel,
   TypographyH2,
-  TypographyH4,
   TypographyLarge,
   TypographyMuted,
   TypographyP,
@@ -30,16 +31,15 @@ export const metadata: Metadata = {
 };
 
 export default function PostsPage() {
-  const orderedPosts = [...posts].sort((a, b) => {
-    if (!a.date || !b.date) return 0;
-    return b.date.getTime() - a.date.getTime();
-  });
+  const orderedPosts = posts;
+  const categoryCount = new Set(orderedPosts.map((post) => post.category)).size;
 
   return (
-    <main className="container mx-auto flex max-w-5xl flex-1 flex-col gap-12 px-6 pt-8 pb-24 md:pt-16">
-      {/* Breadcrumb */}
-
-      <div className="mx-auto flex w-full max-w-3xl">
+    <main
+      id="main-content"
+      className="container mx-auto flex max-w-5xl flex-1 scroll-mt-20 flex-col gap-12 px-6 pt-8 pb-24 md:pt-16"
+    >
+      <div className="mx-auto flex w-full max-w-5xl">
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>
@@ -53,64 +53,90 @@ export default function PostsPage() {
         </Breadcrumb>
       </div>
 
-      {/* Header */}
-      <section className="mx-auto flex w-full max-w-3xl flex-col gap-12">
-        <header className="flex flex-col gap-2">
-          <TypographyH2>{title}</TypographyH2>
+      <section className="mx-auto flex w-full max-w-5xl flex-col gap-10">
+        <header className="grid gap-8 border-b py-8 md:grid-cols-[minmax(0,1fr)_16rem] md:items-end md:gap-12">
+          <div className="flex flex-col gap-3">
+            <SectionLabel>Archive</SectionLabel>
+            <TypographyH2>{title}</TypographyH2>
+            <TypographyLarge className="text-muted-foreground max-w-2xl">
+              {description}
+            </TypographyLarge>
+          </div>
 
-          <TypographyLarge className="text-muted-foreground">
-            {description}
-          </TypographyLarge>
+          <div className="surface-card grid p-4">
+            <div className="grid grid-cols-2 gap-4">
+              <div className="flex flex-col gap-1">
+                <TypographyMuted className="font-mono text-xs tracking-widest uppercase">
+                  Entries
+                </TypographyMuted>
+                <span className="font-mono text-2xl font-semibold">
+                  {orderedPosts.length.toString().padStart(2, "0")}
+                </span>
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <TypographyMuted className="font-mono text-xs tracking-widest uppercase">
+                  Types
+                </TypographyMuted>
+                <span className="font-mono text-2xl font-semibold">
+                  {categoryCount.toString().padStart(2, "0")}
+                </span>
+              </div>
+            </div>
+          </div>
         </header>
 
-        {/* Posts List */}
-        <ul className="divide-border flex w-full flex-col divide-y">
-          {orderedPosts.map((post) => (
-            <li key={post.slug} className="py-6 first:pt-0 last:pb-0">
-              <article className="group relative flex w-full flex-col gap-4 overflow-hidden sm:flex-row sm:gap-8">
-                <Link
-                  href={`/posts/${post.slug}`}
-                  className="absolute inset-0 z-10"
-                >
-                  <span className="sr-only">View {post.title}</span>
-                </Link>
+        {orderedPosts.length > 0 ? (
+          <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {orderedPosts.map((post) => (
+              <li key={post.slug}>
+                <article className="surface-card surface-card-hover group relative flex h-full flex-col overflow-hidden">
+                  <Link
+                    href={`/posts/${post.slug}`}
+                    className="focus-ring absolute inset-0 z-10"
+                  >
+                    <span className="sr-only">View {post.title}</span>
+                  </Link>
 
-                {/* Image */}
-                <div className="relative aspect-video w-full shrink-0 overflow-hidden sm:w-64">
-                  <Image
+                  <PostCover
                     src={post.heroImage}
-                    alt={`${post.title} hero image`}
-                    fill
-                    sizes="(max-width: 639px) 100vw, 16rem"
-                    className="bg-card/10 group-hover:bg-card/50 object-contain opacity-85 transition-all duration-300 ease-out group-hover:opacity-100"
+                    sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
                   />
-                </div>
 
-                {/* Content */}
-                <div className="flex flex-col justify-center gap-4">
-                  <PostMeta showUpdated={false} post={post} />
+                  <div className="flex flex-1 flex-col justify-between gap-5 p-3">
+                    <div className="flex flex-col gap-3">
+                      <div className="flex items-start justify-between gap-3">
+                        <div className="flex flex-col gap-1">
+                          <h3 className="text-foreground/90 group-hover:text-foreground font-mono text-sm font-medium tracking-[-0.01em] underline-offset-4 transition-colors duration-300 ease-out group-hover:underline">
+                            {post.title}
+                          </h3>
+                          <TypographyMuted className="font-mono text-xs tracking-widest uppercase">
+                            {post.category}
+                          </TypographyMuted>
+                        </div>
+                        <ArrowRight className="motion-icon text-muted-foreground mt-0.5 h-3.5 w-3.5 shrink-0 group-hover:translate-x-0.5" />
+                      </div>
 
-                  <div className="flex flex-col gap-2">
-                    <TypographyH4 className="group-hover:underline">
-                      {post.title}
-                    </TypographyH4>
+                      <TypographyP className="text-muted-foreground line-clamp-3 text-sm leading-6">
+                        {post.description}
+                      </TypographyP>
+                    </div>
 
-                    <TypographyP className="line-clamp-2">
-                      {post.description}
-                    </TypographyP>
+                    <div>
+                      <TypographyMuted className="font-mono text-xs tracking-widest uppercase">
+                        {post.timeline}
+                      </TypographyMuted>
+                    </div>
                   </div>
-                </div>
-              </article>
-            </li>
-          ))}
-
-          {/* Empty State */}
-          {orderedPosts.length === 0 && (
-            <li className="py-16 text-center">
-              <TypographyMuted>No posts yet.</TypographyMuted>
-            </li>
-          )}
-        </ul>
+                </article>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <div className="surface-card flex min-h-52 items-center justify-center p-8 text-center">
+            <TypographyMuted>No posts yet.</TypographyMuted>
+          </div>
+        )}
       </section>
     </main>
   );

@@ -1,10 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
 
 import { ArrowRight } from "lucide-react";
 
-import { Card, CardHeader, CardTitle } from "@/components/ui/card";
-
+import { PostCover } from "./post-cover";
 import { SectionBlock } from "./section-block";
 import { TypographyMuted } from "./typography";
 
@@ -17,24 +15,25 @@ interface FeaturedCardProps {
 
 function FeaturedCard({ title, subtitle, image, href }: FeaturedCardProps) {
   return (
-    <Link href={href} className="group block">
-      <Card className="bg-card/10 hover:bg-card/50 relative mx-auto w-full max-w-sm py-0 transition-all duration-300">
-        <div className="relative aspect-video w-full overflow-hidden">
-          <Image
-            src={image}
-            alt={title}
-            fill
-            sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
-            className="object-contain brightness-90 contrast-95 grayscale transition-all duration-300 group-hover:opacity-100 group-hover:brightness-100 group-hover:contrast-100 group-hover:grayscale-0"
-            loading="lazy"
-          />
-        </div>
+    <Link href={href} className="focus-ring group block">
+      <article className="surface-card surface-card-hover relative flex w-full flex-col overflow-hidden">
+        <PostCover
+          src={image}
+          sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+        />
 
-        <CardHeader className="bg-card/20 hover:bg-card py-3">
-          <CardTitle>{title}</CardTitle>
-          <TypographyMuted className="text-xs">{subtitle}</TypographyMuted>
-        </CardHeader>
-      </Card>
+        <div className="flex flex-col gap-1 p-3">
+          <div className="flex items-start justify-between gap-3">
+            <h3 className="text-foreground/90 group-hover:text-foreground font-mono text-sm font-medium tracking-[-0.01em] underline-offset-4 transition-colors duration-300 ease-out group-hover:underline">
+              {title}
+            </h3>
+            <ArrowRight className="motion-icon text-muted-foreground mt-0.5 h-3.5 w-3.5 shrink-0 group-hover:translate-x-0.5" />
+          </div>
+          <TypographyMuted className="font-mono text-xs tracking-widest uppercase">
+            {subtitle}
+          </TypographyMuted>
+        </div>
+      </article>
     </Link>
   );
 }
@@ -64,12 +63,13 @@ export function Featured() {
   return (
     <SectionBlock label="Featured Work" className="lg:flex-1 lg:justify-center">
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {projects.map((project, i) => (
-          <FeaturedCard key={i} {...project} />
+        {projects.map((project) => (
+          <FeaturedCard key={project.href} {...project} />
         ))}
       </div>
-      <Link href="/posts" className="nav-link group">
-        View all work <ArrowRight className="h-3 w-3" />
+      <Link href="/posts" className="cta-link cta-link-secondary group w-fit">
+        View all work
+        <ArrowRight className="motion-icon h-3 w-3 group-hover:translate-x-0.5" />
       </Link>
     </SectionBlock>
   );

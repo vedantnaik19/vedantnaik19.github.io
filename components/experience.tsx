@@ -42,26 +42,31 @@ const experience: ExperienceItem[] = [
 export function Experience() {
   return (
     <SectionBlock label="Experience">
-      <div className="flex flex-col gap-12">
+      <div className="flex flex-col border-b">
         {experience.map((item) => (
           <div
             key={`${item.company}-${item.role}`}
-            className="flex flex-col gap-y-2"
+            className="surface-row-hover grid gap-3 border-t py-6 md:grid-cols-[8rem_minmax(0,1fr)] md:gap-8 md:px-3"
           >
-            <div className="flex flex-col items-start justify-between gap-1 sm:flex-row sm:items-baseline sm:gap-0">
-              <TypographyH4>{item.role}</TypographyH4>
+            <div>
               <TypographyMuted as="span" className="font-mono">
                 {item.period}
               </TypographyMuted>
             </div>
 
-            <TypographyMuted>{item.company}</TypographyMuted>
+            <div className="flex flex-col gap-y-2">
+              <div className="flex flex-col items-start justify-between gap-1 sm:flex-row sm:items-baseline sm:gap-0">
+                <TypographyH4>{item.role}</TypographyH4>
+              </div>
 
-            {item.description && (
-              <TypographyP className="mt-2 max-w-prose">
-                {item.description}
-              </TypographyP>
-            )}
+              <TypographyMuted>{item.company}</TypographyMuted>
+
+              {item.description && (
+                <TypographyP className="text-muted-foreground mt-2 max-w-prose">
+                  {item.description}
+                </TypographyP>
+              )}
+            </div>
           </div>
         ))}
       </div>

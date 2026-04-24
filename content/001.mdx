@@ -6,13 +6,13 @@ import { PostSpecs } from "@/components/post-specs";
 import { PostTitle } from "@/components/post-title";
 import { HoverProjectLinks } from "@/components/hover-project-links";
 
-import { posts } from "@/lib/posts";
+import { getPost } from "@/lib/posts";
 
-export const post = posts.find((p) => p.slug === "001");
+export const post = getPost("001");
 
 export const metadata = {
-  title: post?.title,
-  description: post?.description,
+  title: post.title,
+  description: post.description,
 };
 
 export const role = "Co-founder, Fullstack Engineer, System Architect";
@@ -51,13 +51,13 @@ export const outcomeImages = [1, 2, 3, 4];
     <HoverProjectLinks />
   </header>
 
-  <figure className="relative mx-auto w-full max-w-3xl aspect-video overflow-hidden bg-muted/50">
+  <figure className="relative mx-auto aspect-video w-full max-w-3xl overflow-hidden bg-card/10">
     <Image 
       alt={`${post.title} hero image`} 
       src={post.heroImage} 
       fill
       loading="eager"
-      className="object-contain scale-125"
+      className="scale-125 object-contain p-3"
     />
     <figcaption className="sr-only">
       {post.title} hero image

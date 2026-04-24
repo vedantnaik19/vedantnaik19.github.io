@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import {
   NavigationMenu,
@@ -10,25 +11,34 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 
-import { Separator } from "./ui/separator";
 import { ThemeToggle } from "./theme-toggle";
 
 export function Navbar() {
+  const pathname = usePathname();
+  const isWorkActive = pathname.startsWith("/posts");
+
   return (
-    <nav className="bg-background/85 sticky top-0 z-50 w-full border-b py-3 backdrop-blur-md">
+    <nav className="bg-background/85 sticky top-0 z-50 w-full border-b py-1 backdrop-blur-md">
       <div className="container mx-auto flex max-w-5xl items-center justify-between px-6">
         <Link
           href="/"
-          className="hover:text-foreground/80 inline-flex h-9 items-center justify-center px-2 font-mono text-xl font-semibold tracking-tight transition-opacity"
+          className="group focus-ring -ml-2 inline-flex h-14 items-center gap-3 px-2 font-mono transition-colors duration-300 ease-out"
           aria-label="Vedant Naik - Home"
         >
-          वे
+          <span className="surface-card surface-card-hover inline-flex h-8 w-8 items-center justify-center text-sm font-semibold tracking-tight">
+            वे
+          </span>
+          <span className="text-muted-foreground hidden text-xs font-medium tracking-wide sm:inline">
+            Vedant Naik
+          </span>
         </Link>
-        <NavigationMenu>
-          <NavigationMenuList className="gap-1">
+
+        <NavigationMenu className="flex-none">
+          <NavigationMenuList className="surface-card gap-0">
             <NavigationMenuItem>
               <NavigationMenuLink
                 className={navigationMenuTriggerStyle()}
+                data-active={isWorkActive || undefined}
                 render={<Link href="/posts">Work</Link>}
               />
             </NavigationMenuItem>
@@ -38,8 +48,7 @@ export function Navbar() {
                 render={<Link href="#contact">Contact</Link>}
               />
             </NavigationMenuItem>
-            <Separator orientation="vertical" className="m-2" />
-            <NavigationMenuItem>
+            <NavigationMenuItem className="border-l">
               <ThemeToggle />
             </NavigationMenuItem>
           </NavigationMenuList>

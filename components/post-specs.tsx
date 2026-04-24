@@ -41,7 +41,7 @@ function SpecItem({
   monoValue?: boolean;
 }) {
   return (
-    <div className="flex flex-col gap-2">
+    <div className="bg-background/95 flex flex-col gap-2 p-4">
       <div className="text-muted-foreground flex items-center gap-2">
         <Icon className="h-3 w-3" />
         <TypographyXSmall>{label}</TypographyXSmall>
@@ -61,12 +61,10 @@ function SpecItem({
 
 export function PostSpecs({ timeline, role, tools }: PostSpecsProps) {
   return (
-    <div className="border-y py-12">
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
-        <SpecItem icon={Calendar} label="Timeline" value={timeline} monoValue />
-        <SpecItem icon={Briefcase} label="Role" value={role} />
-        <SpecItem icon={Hammer} label="Tools" value={tools} />
-      </div>
+    <div className="surface-card bg-border grid gap-px p-px sm:grid-cols-3">
+      <SpecItem icon={Calendar} label="Timeline" value={timeline} monoValue />
+      <SpecItem icon={Briefcase} label="Role" value={role} />
+      <SpecItem icon={Hammer} label="Tools" value={tools} />
     </div>
   );
 }
